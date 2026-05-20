@@ -1,0 +1,915 @@
+{
+  "generatedAt": "2026-05-19T21:06:38.485Z",
+  "count": 101,
+  "quiz": [
+    {
+      "id": "Q|1",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 1,
+      "question": "Na análise assintótica da disciplina, o hardware usado para executar o algoritmo deve ser considerado como fator principal?",
+      "answer": false,
+      "explanation": "Na análise assintótica, considera-se principalmente a estrutura do algoritmo e o tamanho da entrada, não o hardware."
+    },
+    {
+      "id": "Q|2",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 2,
+      "question": "A análise assintótica busca avaliar o crescimento do custo do algoritmo em função do tamanho da entrada?",
+      "answer": true,
+      "explanation": "Ela observa como o custo cresce conforme o tamanho da entrada aumenta."
+    },
+    {
+      "id": "Q|3",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 3,
+      "question": "Na notação Big O, constantes multiplicativas e termos de menor ordem costumam ser desprezados para entradas grandes?",
+      "answer": true,
+      "explanation": "Em Big O, mantemos o termo dominante do crescimento."
+    },
+    {
+      "id": "Q|4",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 4,
+      "question": "Um algoritmo que executa sempre a mesma quantidade de operações, independentemente do tamanho da entrada, tem complexidade O(1)?",
+      "answer": true,
+      "explanation": "Se o número de operações não depende de n, a complexidade é constante."
+    },
+    {
+      "id": "Q|5",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 5,
+      "question": "Um algoritmo O(log n) normalmente reduz o problema pela metade, ou por uma fração constante, a cada passo?",
+      "answer": true,
+      "explanation": "Esse é o comportamento típico de algoritmos logarítmicos, como a busca binária."
+    },
+    {
+      "id": "Q|6",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 6,
+      "question": "Todo algoritmo com dois laços no código é obrigatoriamente O(n²)?",
+      "answer": false,
+      "explanation": "Dois laços só indicam O(n²) quando são aninhados e ambos dependem de n. Laços sequenciais podem ser O(n)."
+    },
+    {
+      "id": "Q|7",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 7,
+      "question": "Três laços aninhados de tamanho n, com trabalho constante no corpo interno, normalmente geram complexidade O(n³)?",
+      "answer": true,
+      "explanation": "O total de iterações é n · n · n."
+    },
+    {
+      "id": "Q|8",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 8,
+      "question": "Quando um algoritmo percorre uma matriz com m linhas e n colunas, a complexidade típica é O(m · n)?",
+      "answer": true,
+      "explanation": "Para visitar todas as células, percorremos m linhas e n colunas."
+    },
+    {
+      "id": "Q|9",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 9,
+      "question": "Dizer que uma operação é O(1) amortizado significa que toda execução individual dessa operação será obrigatoriamente O(1)?",
+      "answer": false,
+      "explanation": "Amortizado significa custo médio em uma sequência de operações; uma operação individual pode ser mais cara."
+    },
+    {
+      "id": "Q|10",
+      "partNumber": 1,
+      "partTitle": "Parte 1 — Complexidade assintótica e Big O",
+      "number": 10,
+      "question": "O pior caso representa o maior custo possível de uma operação ou algoritmo para entradas de determinado tamanho?",
+      "answer": true,
+      "explanation": "É a situação de maior custo para uma entrada de tamanho n. Parte 2 — Arrays, listas dinâmicas e listas encadeadas"
+    },
+    {
+      "id": "Q|11",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 11,
+      "question": "Em um array ou vetor estático convencional, o tempo de execução para acessar diretamente um elemento pelo índice é O(1)?",
+      "answer": true,
+      "explanation": "Como os elementos ficam em posições contíguas, o endereço é calculado diretamente a partir do índice."
+    },
+    {
+      "id": "Q|12",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 12,
+      "question": "A list do Python pode ser entendida, internamente, como um vetor/array dinâmico?",
+      "answer": true,
+      "explanation": "Ela funciona de forma semelhante a um vetor dinâmico."
+    },
+    {
+      "id": "Q|13",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 13,
+      "question": "O acesso direto por índice em uma list do Python, como lista[2], é O(1)?",
+      "answer": true,
+      "explanation": "O índice permite calcular diretamente a posição do elemento."
+    },
+    {
+      "id": "Q|14",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 14,
+      "question": "A inserção de um elemento no início, posição 0, de um array de tamanho N ocorre em tempo constante O(1)?",
+      "answer": false,
+      "explanation": "É necessário deslocar os itens existentes para a direita, o que custa O(N)."
+    },
+    {
+      "id": "Q|15",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 15,
+      "question": "Inserir no início de uma list com insert(0, valor) é O(1), pois basta alterar o primeiro índice?",
+      "answer": false,
+      "explanation": "Inserir no início exige deslocar elementos para a direita, logo custa O(n)."
+    },
+    {
+      "id": "Q|16",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 16,
+      "question": "Remover do início de uma list com pop(0) é O(n), pois os elementos restantes precisam ser deslocados?",
+      "answer": true,
+      "explanation": "Após remover a posição 0, os elementos precisam ser deslocados à esquerda."
+    },
+    {
+      "id": "Q|17",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 17,
+      "question": "O append() no fim de uma list é considerado O(1) amortizado?",
+      "answer": true,
+      "explanation": "Embora possa haver realocações ocasionais, o custo médio em várias inserções é constante."
+    },
+    {
+      "id": "Q|18",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 18,
+      "question": "A operação append() pode custar O(n) em uma execução específica quando há realocação interna?\n 1",
+      "answer": true,
+      "explanation": "Quando a capacidade acaba, a lista pode precisar criar um bloco maior e copiar os elementos."
+    },
+    {
+      "id": "Q|19",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 19,
+      "question": "Uma lista dinâmica, como a list do Python ou o ArrayList do Java, cria um novo array maior e copia os elementos antigos quando atinge a capacidade máxima?",
+      "answer": true,
+      "explanation": "Essas estruturas usam arrays internos e podem realocar memória quando a capacidade se esgota."
+    },
+    {
+      "id": "Q|20",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 20,
+      "question": "Em uma lista encadeada simples, é possível acessar diretamente o elemento do meio em tempo constante O(1)?",
+      "answer": false,
+      "explanation": "É preciso percorrer a lista desde a cabeça até chegar ao nó desejado, custando O(N)."
+    },
+    {
+      "id": "Q|21",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 21,
+      "question": "Em uma lista encadeada simples, o acesso direto por índice é O(1)?",
+      "answer": false,
+      "explanation": "Lista encadeada não possui acesso direto por índice; é necessário percorrer os nós."
+    },
+    {
+      "id": "Q|22",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 22,
+      "question": "Na lista encadeada simples, inserir no início é O(1), pois basta atualizar a cabeça da lista?",
+      "answer": true,
+      "explanation": "Basta criar o novo nó e apontar a cabeça para ele. 1"
+    },
+    {
+      "id": "Q|23",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 23,
+      "question": "Inserir no fim de uma lista encadeada simples é O(1) mesmo sem ponteiro para cauda?",
+      "answer": false,
+      "explanation": "Sem ponteiro para cauda, é necessário percorrer até o último nó, custo O(n)."
+    },
+    {
+      "id": "Q|24",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 24,
+      "question": "Uma lista encadeada simples armazena os elementos obrigatoriamente em posições contíguas de memória?",
+      "answer": false,
+      "explanation": "Os nós podem estar espalhados na memória e são ligados por referências."
+    },
+    {
+      "id": "Q|25",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 25,
+      "question": "A principal vantagem de uma lista encadeada sobre um array estático é facilitar o crescimento dinâmico, sem realocar toda a memória pré-existente?",
+      "answer": true,
+      "explanation": "Cada novo nó pode ser alocado de forma independente, sem mover todos os itens antigos."
+    },
+    {
+      "id": "Q|26",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 26,
+      "question": "É correto afirmar que, se já existe um ponteiro para o nó após o qual será feita a inserção em uma lista encadeada, essa inserção pode ser realizada em tempo constante, isto é, O(1)?",
+      "answer": true,
+      "explanation": "Se já existe um ponteiro para o local desejado, não é necessário percorrer a lista. A inserção exige apenas o ajuste dos ponteiros envolvidos, por isso ocorre em tempo O(1)."
+    },
+    {
+      "id": "Q|27",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 27,
+      "question": "É correto afirmar que, para descobrir o tamanho de uma lista encadeada quando não há contador armazenado, é necessário percorrer os nós, resultando em complexidade O(n)?",
+      "answer": true,
+      "explanation": "Quando a estrutura não mantém um contador de tamanho, é necessário percorrer os nós um por um até o final. Como todos os n nós podem precisar ser visitados, a complexidade é O(n)."
+    },
+    {
+      "id": "Q|28",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 28,
+      "question": "É correto afirmar que, no pior caso, a busca de um elemento em uma lista simplesmente encadeada de tamanho n tem complexidade O(n)?",
+      "answer": true,
+      "explanation": "Em uma lista simplesmente encadeada, a busca começa no primeiro nó e segue nó por nó. No pior caso, o elemento estará no fim da lista ou não estará presente, exigindo a verificação de todos os n elementos."
+    },
+    {
+      "id": "Q|29",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 29,
+      "question": "Em uma lista simplesmente encadeada que possui apenas o ponteiro head, é correto afirmar que a exclusão do último nó é sempre O(1)?",
+      "answer": false,
+      "explanation": "Com apenas o ponteiro head, excluir o último nó exige encontrar o nó anterior ao último. Para isso, é preciso percorrer a lista, resultando em O(n), e não O(1)."
+    },
+    {
+      "id": "Q|30",
+      "partNumber": 2,
+      "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
+      "number": 30,
+      "question": "Em uma lista encadeada que possui apenas um ponteiro head apontando para o início, estão corretas as seguintes complexidades? - Inserção no início: O(1) - Inserção no fim: O(n) - Exclusão do nó inicial: O(1) - Exclusão do último nó: O(n)",
+      "answer": true,
+      "explanation": "Inserir no início e excluir o nó inicial são operações O(1), pois envolvem apenas atualização do ponteiro head. Já inserir no fim ou excluir o último nó exige percorrer a lista até o final, resultando em O(n). Parte 3 — Pilhas, filas, deques e listas circulares"
+    },
+    {
+      "id": "Q|31",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 31,
+      "question": "Uma pilha segue a regra LIFO: o último elemento a entrar é o primeiro a sair?",
+      "answer": true,
+      "explanation": "Pilha significa Last In, First Out."
+    },
+    {
+      "id": "Q|32",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 32,
+      "question": "O princípio de funcionamento de uma fila segue a lógica LIFO, em que o último elemento a entrar é o primeiro a sair?",
+      "answer": false,
+      "explanation": "Fila segue FIFO. LIFO é a regra das pilhas."
+    },
+    {
+      "id": "Q|33",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 33,
+      "question": "Uma fila segue a regra FIFO: o primeiro elemento a entrar é o primeiro a sair?",
+      "answer": true,
+      "explanation": "Fila significa First In, First Out."
+    },
+    {
+      "id": "Q|34",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 34,
+      "question": "Em uma fila padrão, a operação de inserção enqueue e a operação de remoção dequeue ocorrem em extremidades opostas da estrutura?",
+      "answer": true,
+      "explanation": "Para manter FIFO, entra-se pelo fim e remove-se pelo início."
+    },
+    {
+      "id": "Q|35",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 35,
+      "question": "Usar append() e pop() no final de uma list é uma forma eficiente de implementar pilha em Python?",
+      "answer": true,
+      "explanation": "No final da list, append e pop são eficientes."
+    },
+    {
+      "id": "Q|36",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 36,
+      "question": "Usar pop(0) em uma list é uma escolha eficiente para filas grandes?",
+      "answer": false,
+      "explanation": "pop(0) desloca os elementos restantes e custa O(n)."
+    },
+    {
+      "id": "Q|37",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 37,
+      "question": "Uma fila com lista simplesmente encadeada pode ter enqueue e dequeue em O(1) se mantiver referências para frente e fim?",
+      "answer": true,
+      "explanation": "Com frente e fim, basta atualizar referências."
+    },
+    {
+      "id": "Q|38",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 38,
+      "question": "A pilha é uma estrutura recomendada para criar o recurso de desfazer, undo, em um editor de textos?\n 2",
+      "answer": true,
+      "explanation": "O desfazer remove primeiro a ação mais recente, seguindo LIFO."
+    },
+    {
+      "id": "Q|39",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 39,
+      "question": "Em uma pilha estrita, é possível acessar e remover diretamente o elemento que está no fundo da pilha, ignorando os elementos do topo?",
+      "answer": false,
+      "explanation": "Em uma pilha, as remoções ocorrem pelo topo."
+    },
+    {
+      "id": "Q|40",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 40,
+      "question": "Um deque permite inserir e remover dados eficientemente, em O(1), tanto no início quanto no final da estrutura?",
+      "answer": true,
+      "explanation": "Deque significa double-ended queue, ou fila de duas pontas."
+    },
+    {
+      "id": "Q|41",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 41,
+      "question": "A lista duplamente encadeada é especialmente útil quando desejamos inserir e remover nas duas pontas, como em um deque?",
+      "answer": true,
+      "explanation": "Ela facilita operações nos dois sentidos e nas duas extremidades."
+    },
+    {
+      "id": "Q|42",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 42,
+      "question": "Uma lista circular é necessariamente um array estático?",
+      "answer": false,
+      "explanation": "Pode ser lista encadeada circular ou fila circular baseada em array."
+    },
+    {
+      "id": "Q|43",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 43,
+      "question": "Em uma lista encadeada circular, o último nó aponta novamente para o primeiro nó?",
+      "answer": true,
+      "explanation": "Essa ligação de volta ao primeiro nó caracteriza a circularidade."
+    },
+    {
+      "id": "Q|44",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 44,
+      "question": "É correto afirmar que, em uma fila implementada com lista encadeada, se o enqueue adiciona elementos no fim da lista, o dequeue deve remover elementos do início para preservar o comportamento FIFO?",
+      "answer": true,
+      "explanation": "Uma fila segue o princípio FIFO: o primeiro elemento a entrar deve ser o primeiro a sair. Se novos elementos entram pelo fim, a remoção deve ocorrer pelo início para preservar essa ordem. 2"
+    },
+    {
+      "id": "Q|45",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 45,
+      "question": "Em uma fila implementada com lista simplesmente encadeada, se o enqueue for feito no início em O(1), mas o dequeue precisar remover o último nó, é correto afirmar que o dequeue terá complexidade O(n)?",
+      "answer": true,
+      "explanation": "O enqueue no início pode ser O(1), mas remover o último nó em uma lista simplesmente encadeada exige percorrer a lista até encontrar o nó anterior ao último. Por isso, o dequeue nesse arranjo é O(n)."
+    },
+    {
+      "id": "Q|46",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 46,
+      "question": "Na implementação clássica de uma fila usando apenas pilhas como estruturas auxiliares, é correto afirmar que normalmente são usadas duas pilhas?",
+      "answer": true,
+      "explanation": "Na implementação clássica de uma fila usando apenas pilhas, uma pilha recebe os elementos inseridos e a outra permite removê-los na ordem correta, invertendo a ordem quando necessário."
+    },
+    {
+      "id": "Q|47",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 47,
+      "question": "É correto afirmar que uma fila implementada eficientemente com array circular precisa deslocar todos os elementos a cada operação de dequeue?",
+      "answer": false,
+      "explanation": "Em uma implementação eficiente com array circular, não é necessário deslocar todos os elementos. A fila controla posições de início e fim por meio de índices, reaproveitando espaços livres."
+    },
+    {
+      "id": "Q|48",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 48,
+      "question": "É correto afirmar que, quando uma fila é implementada eficientemente com um array circular, as operações enqueue e dequeue podem ter complexidade O(1)?",
+      "answer": true,
+      "explanation": "Em um array circular, enqueue e dequeue podem ser realizados apenas atualizando índices de início e fim, sem deslocar elementos. Por isso, ambas as operações podem ser O(1)."
+    },
+    {
+      "id": "Q|49",
+      "partNumber": 3,
+      "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
+      "number": 49,
+      "question": "É correto afirmar que uma pilha auxiliar pode ser usada para exibir os elementos de uma fila na ordem inversa?",
+      "answer": true,
+      "explanation": "Uma pilha segue o princípio LIFO. Ao remover elementos da fila e empilhá- los, a ordem é invertida; ao desempilhar, os elementos aparecem na ordem inversa da fila original. Parte 4 — Algoritmos de ordenação"
+    },
+    {
+      "id": "Q|50",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 50,
+      "question": "O Insertion Sort tende a ser eficiente para listas pequenas ou quase ordenadas?",
+      "answer": true,
+      "explanation": "Ele faz poucos deslocamentos quando a lista já está quase na ordem correta."
+    },
+    {
+      "id": "Q|51",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 51,
+      "question": "No melhor caso, quando a lista já está ordenada, o Insertion Sort pode ser O(n)?",
+      "answer": true,
+      "explanation": "O laço interno para rapidamente, e a lista é percorrida basicamente uma vez."
+    },
+    {
+      "id": "Q|52",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 52,
+      "question": "O Insertion Sort, embora geralmente O(N²) em arrays grandes, pode alcançar desempenho linear O(N) em listas quase ordenadas?",
+      "answer": true,
+      "explanation": "Em listas já ordenadas ou quase ordenadas, há poucas movimentações."
+    },
+    {
+      "id": "Q|53",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 53,
+      "question": "O Selection Sort deixa de procurar o menor elemento quando percebe que a lista já está ordenada, ficando O(n) no melhor caso?",
+      "answer": false,
+      "explanation": "Mesmo ordenada, ele continua procurando o menor em cada passo."
+    },
+    {
+      "id": "Q|54",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 54,
+      "question": "O Selection Sort costuma realizar poucas trocas, no máximo uma por posição?",
+      "answer": true,
+      "explanation": "Ele seleciona o menor da parte não ordenada e faz, no máximo, uma troca por rodada."
+    },
+    {
+      "id": "Q|55",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 55,
+      "question": "A lógica que dá nome ao Selection Sort vem do fato de ele selecionar o menor elemento da parte não ordenada e colocá-lo na posição correta?",
+      "answer": true,
+      "explanation": "A cada rodada, ele seleciona o menor valor restante e o posiciona na parte ordenada."
+    },
+    {
+      "id": "Q|56",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 56,
+      "question": "O Merge Sort usa a estratégia de divisão e conquista?",
+      "answer": true,
+      "explanation": "Ele divide a lista, ordena as partes e depois mescla os resultados."
+    },
+    {
+      "id": "Q|57",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 57,
+      "question": "O Merge Sort possui complexidade O(n log n) no caso típico apresentado nas aulas?",
+      "answer": true,
+      "explanation": "São log n níveis de divisão, e cada nível processa n elementos."
+    },
+    {
+      "id": "Q|58",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 58,
+      "question": "O Merge Sort garante complexidade O(N log N) tanto no melhor quanto no pior caso?",
+      "answer": true,
+      "explanation": "A divisão e a mesclagem mantêm o mesmo padrão de custo independentemente da ordenação inicial."
+    },
+    {
+      "id": "Q|59",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 59,
+      "question": "O Quick Sort sempre tem O(n log n), independentemente da escolha do pivô?\n 3",
+      "answer": false,
+      "explanation": "A escolha ruim do pivô pode gerar partições desbalanceadas."
+    },
+    {
+      "id": "Q|60",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 60,
+      "question": "O Quick Sort escolhe um pivô para separar os itens, mas seu pior caso absoluto pode chegar a O(N²)?",
+      "answer": true,
+      "explanation": "Se o particionamento for muito ruim repetidamente, a complexidade degrada para quadrática."
+    },
+    {
+      "id": "Q|61",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 61,
+      "question": "Algoritmos O(n²), como Selection Sort e Bubble Sort, tendem a escalar pior que algoritmos O(n log n) para listas grandes?",
+      "answer": true,
+      "explanation": "O crescimento quadrático aumenta mais rapidamente que n log n."
+    },
+    {
+      "id": "Q|62",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 62,
+      "question": "Considerando o método de partição indicado no enunciado, ao aplicar o quicksort à sequência abaixo, usando 56 como primeiro pivô, a sequência obtida após a primeira fase será 34, 12, 23, 45, 56, 99, 66, 78, 89? 56, 89, 23, 99, 45, 12, 66, 78, 34",
+      "answer": true,
+      "explanation": "Considerando o método de partição indicado no enunciado, após a primeira fase do quicksort com 56 como pivô, os valores menores ficam antes do pivô e os maiores depois, resultando na sequência: 34, 12, 23, 45, 56, 99, 66, 78, 89."
+    },
+    {
+      "id": "Q|63",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 63,
+      "question": "É correto afirmar que o quicksort pode ser considerado um algoritmo de divisão e conquista porque particiona o vetor em subproblemas menores a partir de um pivô?",
+      "answer": true,
+      "explanation": "O quicksort é de divisão e conquista porque divide o problema em subproblemas menores a partir de um pivô e ordena as partes resultantes. 3"
+    },
+    {
+      "id": "Q|64",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 64,
+      "question": "É correto afirmar que a ordenação por seleção costuma realizar menos trocas que outros algoritmos simples, como a ordenação por bolha?",
+      "answer": true,
+      "explanation": "A ordenação por seleção costuma realizar poucas trocas, pois a cada passagem seleciona o menor elemento e faz, no máximo, uma troca para colocá-lo na posição correta."
+    },
+    {
+      "id": "Q|65",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 65,
+      "question": "É correto afirmar que a ordenação por seleção é geralmente escolhida porque possui complexidade O(n log n)?",
+      "answer": false,
+      "explanation": "A ordenação por seleção não possui complexidade O(n log n). Sua complexidade de tempo típica é O(n²), pois envolve comparações repetidas entre os elementos."
+    },
+    {
+      "id": "Q|66",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 66,
+      "question": "Usando ordenação por seleção no array A = [15, 9, 33, 35, 100, 95, 13, 11, 2, 13], é correto afirmar que, após a quinta troca, o array ficará na seguinte ordem: 2, 9, 11, 13, 13, 95, 35, 33, 15, 100?",
+      "answer": true,
+      "explanation": "Aplicando a ordenação por seleção ao array informado, após a quinta troca, a parte inicial fica ordenada e a sequência indicada é obtida: 2, 9, 11, 13, 13, 95, 35, 33, 15, 100."
+    },
+    {
+      "id": "Q|67",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 67,
+      "question": "Considerando que a ordenação por inserção faça uma passagem para cada elemento da lista, é correto afirmar que a lista {44, 21, 61, 6, 13, 1} terá 6 iterações?",
+      "answer": true,
+      "explanation": "Considerando uma passagem para cada elemento da lista, a sequência {44, 21, 61, 6, 13, 1} possui 6 elementos e, portanto, 6 iterações nessa convenção."
+    },
+    {
+      "id": "Q|68",
+      "partNumber": 4,
+      "partTitle": "Parte 4 — Algoritmos de ordenação",
+      "number": 68,
+      "question": "Na ordenação por inserção do array A = [35, 7, 64, 52, 32, 22], é correto afirmar que, após a segunda iteração, os elementos ficarão assim: 7, 35, 64, 52, 32, 22?",
+      "answer": true,
+      "explanation": "Após a segunda iteração da ordenação por inserção no array A = [35, 7, 64, 52, 32, 22], os dois primeiros elementos já aparecem ordenados, resultando em: 7, 35, 64, 52, 32, 22. Parte 5 — Busca binária, ABB/BST e percursos"
+    },
+    {
+      "id": "Q|69",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 69,
+      "question": "A busca binária exige que a sequência esteja ordenada para funcionar corretamente?",
+      "answer": true,
+      "explanation": "Sem ordenação, não é possível descartar metade do conjunto com segurança."
+    },
+    {
+      "id": "Q|70",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 70,
+      "question": "O algoritmo de busca binária pode ser aplicado com sucesso diretamente em um array preenchido com dados completamente desordenados?",
+      "answer": false,
+      "explanation": "A ordenação é pré-requisito obrigatório para a lógica de divisão funcionar."
+    },
+    {
+      "id": "Q|71",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 71,
+      "question": "Na busca binária, a cada comparação, metade dos elementos pode ser descartada?",
+      "answer": true,
+      "explanation": "A comparação com o meio permite escolher apenas um lado da sequência."
+    },
+    {
+      "id": "Q|72",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 72,
+      "question": "A busca binária tem complexidade O(log n) em um vetor ordenado com acesso direto por índice?",
+      "answer": true,
+      "explanation": "A cada passo o intervalo de busca é dividido pela metade."
+    },
+    {
+      "id": "Q|73",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 73,
+      "question": "Aplicar busca binária em um vetor desordenado pode levar a uma resposta incorreta?",
+      "answer": true,
+      "explanation": "A decisão de descartar metade pode eliminar a região onde o valor realmente está."
+    },
+    {
+      "id": "Q|74",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 74,
+      "question": "Uma Árvore Binária de Busca mantém a regra de valores menores à esquerda e maiores à direita?",
+      "answer": true,
+      "explanation": "Essa é a propriedade fundamental da ABB/BST."
+    },
+    {
+      "id": "Q|75",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 75,
+      "question": "Para que uma árvore binária seja considerada uma Árvore Binária de Busca, todos os nós descendentes do lado esquerdo precisam ser menores que o nó pai?",
+      "answer": true,
+      "explanation": "Os menores ficam à esquerda e os maiores à direita, permitindo busca eficiente."
+    },
+    {
+      "id": "Q|76",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 76,
+      "question": "Em uma ABB balanceada, busca, inserção e remoção tendem a ser O(log n)?",
+      "answer": true,
+      "explanation": "Com altura logarítmica, as operações percorrem poucos níveis."
+    },
+    {
+      "id": "Q|77",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 77,
+      "question": "Em uma ABB muito desbalanceada, a busca pode degradar para O(n)?",
+      "answer": true,
+      "explanation": "Uma árvore degenerada pode se comportar como lista encadeada."
+    },
+    {
+      "id": "Q|78",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 78,
+      "question": "Ao remover um nó com dois filhos em uma ABB, pode-se substituí-lo pelo menor valor da subárvore direita ou pelo maior valor da subárvore esquerda?\n 4",
+      "answer": true,
+      "explanation": "Esses substitutos preservam a propriedade da árvore binária de busca."
+    },
+    {
+      "id": "Q|79",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 79,
+      "question": "Durante a travessia de uma árvore em pré-ordem, o algoritmo visita primeiro as folhas e os filhos para só no final visitar a raiz?",
+      "answer": false,
+      "explanation": "Na pré-ordem, a raiz é visitada primeiro. A descrição da pergunta se aproxima da pós- ordem."
+    },
+    {
+      "id": "Q|80",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 80,
+      "question": "É correto afirmar que a busca binária pode ser aplicada corretamente em qualquer vetor, mesmo que ele esteja desordenado?",
+      "answer": false,
+      "explanation": "A busca binária exige que os dados estejam ordenados. Em um vetor desordenado, a regra de descartar metade dos elementos pode eliminar justamente a parte onde está o valor procurado."
+    },
+    {
+      "id": "Q|81",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 81,
+      "question": "É correto afirmar que a complexidade de tempo no pior caso do algoritmo de busca binária é O(log n)?",
+      "answer": true,
+      "explanation": "A busca binária divide o espaço de busca pela metade a cada comparação. Por isso, no pior caso, o número de comparações cresce de forma logarítmica, resultando em O(log n)."
+    },
+    {
+      "id": "Q|82",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 82,
+      "question": "É correto afirmar que o algoritmo de busca por interpolação costuma ter desempenho melhor que a busca binária quando os dados do array estão uniformemente distribuídos?",
+      "answer": true,
+      "explanation": "A busca por interpolação tende a ter melhor desempenho quando os dados estão uniformemente distribuídos, pois consegue estimar com mais precisão a posição provável do elemento procurado."
+    },
+    {
+      "id": "Q|83",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 83,
+      "question": "É correto afirmar que, na varredura em pós-ordem de uma árvore, o nó raiz é visitado por último?",
+      "answer": true,
+      "explanation": "Na varredura em pós-ordem, a ordem de visita é: subárvore esquerda, subárvore direita e, por último, a raiz. 4"
+    },
+    {
+      "id": "Q|84",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 84,
+      "question": "Considere a árvore de busca abaixo. Se removermos o nó raiz 8 e quisermos substituí-lo por algum nó da subárvore esquerda, é correto afirmar que a nova raiz poderá ser 6, por ser o maior valor da subárvore esquerda?\n 8\n/ \\\n 2 9\n/ \\ \\\n 1 6 10\n/\n 5",
+      "answer": true,
+      "explanation": "Ao remover a raiz 8 de uma árvore binária de busca e substituí-la por um nó da subárvore esquerda, escolhe-se o maior valor dessa subárvore. Na árvore apresentada, esse valor é 6."
+    },
+    {
+      "id": "Q|85",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 85,
+      "question": "Considere a árvore abaixo. Estão corretas as seguintes varreduras? - Pré-ordem: 7, 5, 1, 6, 8, 9 - Em-ordem: 1, 5, 6, 7, 8, 9 - Pós-ordem: 1, 6, 5, 9, 8, 7\n 7\n/ \\\n 5 8\n/ \\ \\\n 1 6 9",
+      "answer": true,
+      "explanation": "Na pré-ordem, visita-se raiz, esquerda e direita: 7, 5, 1, 6, 8, 9. Na em- ordem, visita-se esquerda, raiz e direita: 1, 5, 6, 7, 8, 9. Na pós-ordem, visita-se esquerda, direita e raiz: 1, 6, 5, 9, 8, 7."
+    },
+    {
+      "id": "Q|86",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 86,
+      "question": "É correto afirmar que duas árvores binárias são idênticas apenas por possuírem os mesmos elementos, ainda que estejam em posições diferentes?",
+      "answer": false,
+      "explanation": "Duas árvores binárias idênticas precisam ter a mesma estrutura e os mesmos valores nas mesmas posições. Ter apenas os mesmos elementos não é suficiente."
+    },
+    {
+      "id": "Q|87",
+      "partNumber": 5,
+      "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
+      "number": 87,
+      "question": "Na árvore abaixo, é correto afirmar que existem três folhas?\n 7\n/ \\\n 5 8\n/ \\ \\\n 1 6 9",
+      "answer": true,
+      "explanation": "Folhas são nós que não possuem filhos. Na árvore apresentada, os nós 1, 6 e 9 não possuem filhos. Portanto, existem três folhas. Parte 6 — Hash, dicionários e sets"
+    },
+    {
+      "id": "Q|88",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 88,
+      "question": "Um dicionário abstrato armazena dados no formato chave → valor?\n 5",
+      "answer": true,
+      "explanation": "O dicionário associa uma chave a um valor."
+    },
+    {
+      "id": "Q|89",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 89,
+      "question": "Um set armazena pares chave → valor, assim como um dicionário?",
+      "answer": false,
+      "explanation": "Set armazena apenas elementos únicos, sem valor associado."
+    },
+    {
+      "id": "Q|90",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 90,
+      "question": "Em Python, o dict é uma implementação concreta do conceito abstrato de dicionário?",
+      "answer": true,
+      "explanation": "O dict concretiza o TAD dicionário usando estratégia baseada em hash."
+    },
+    {
+      "id": "Q|91",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 91,
+      "question": "Uma tabela hash usa uma função hash para transformar uma chave em uma posição de um array?",
+      "answer": true,
+      "explanation": "A função hash calcula um índice provável para armazenar ou buscar o par chave-valor."
+    },
+    {
+      "id": "Q|92",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 92,
+      "question": "Na tabela hash, a posição calculada normalmente guarda apenas o índice, sem armazenar chave e valor?",
+      "answer": false,
+      "explanation": "A posição deve guardar o par chave-valor ou uma estrutura contendo esse par."
+    },
+    {
+      "id": "Q|93",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 93,
+      "question": "O objetivo central de uma função de espalhamento, ou hash function, é distribuir os dados na tabela o mais uniformemente possível para evitar colisões?",
+      "answer": true,
+      "explanation": "Boa distribuição reduz colisões e ajuda a manter operações próximas de O(1)."
+    },
+    {
+      "id": "Q|94",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 94,
+      "question": "Em média, busca, inserção e remoção em tabela hash podem ser O(1)?",
+      "answer": true,
+      "explanation": "Com boa função hash e poucas colisões, essas operações são constantes em média."
+    },
+    {
+      "id": "Q|95",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 95,
+      "question": "No pior caso, uma tabela hash pode ter operações O(n), por exemplo, em situações ruins de colisão?",
+      "answer": true,
+      "explanation": "Se muitas chaves caírem no mesmo bucket, a busca pode virar linear."
+    },
+    {
+      "id": "Q|96",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 96,
+      "question": "Na tabela hash, o tempo de busca continua sendo invariavelmente O(1) mesmo no pior caso absoluto, quando todos os dados sofrem colisão?",
+      "answer": false,
+      "explanation": "No pior caso, todos os elementos podem ficar no mesmo bucket, exigindo busca linear O(N)."
+    },
+    {
+      "id": "Q|97",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 97,
+      "question": "Uma lista/array não ordenado é uma implementação eficiente para buscar valores por chave em grandes dicionários?",
+      "answer": false,
+      "explanation": "Sem estratégia de índice por chave, é necessário buscar sequencialmente, custo O(n)."
+    },
+    {
+      "id": "Q|98",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 98,
+      "question": "É correto afirmar que uma tabela hash com 40 slots e 200 elementos armazenados possui fator de carga igual a 5?",
+      "answer": true,
+      "explanation": "O fator de carga é calculado dividindo o número de elementos pelo número de slots. Assim: 200 / 40 = 5."
+    },
+    {
+      "id": "Q|99",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 99,
+      "question": "É correto afirmar que, no hashing com encadeamento separado, o tempo de busca no pior caso é sempre O(1)?",
+      "answer": false,
+      "explanation": "No encadeamento separado, o pior caso ocorre quando muitos ou todos os elementos caem no mesmo índice da tabela. Nesse caso, a busca pode precisar percorrer uma lista com até n elementos, resultando em O(n)."
+    },
+    {
+      "id": "Q|100",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 100,
+      "question": "É correto afirmar que, com distribuição uniforme das chaves, as operações de busca, inserção e exclusão em uma tabela hash têm complexidade média O(1)?",
+      "answer": true,
+      "explanation": "Com distribuição uniforme das chaves, os elementos ficam bem espalhados pela tabela. Assim, em média, busca, inserção e exclusão podem ser feitas em tempo constante, O(1)."
+    },
+    {
+      "id": "Q|101",
+      "partNumber": 6,
+      "partTitle": "Parte 6 — Hash, dicionários e sets",
+      "number": 101,
+      "question": "É correto afirmar que a remoção de caracteres duplicados de um array de caracteres pode ter complexidade O(n) quando se usa uma tabela hash para marcar os caracteres já processados?\n 6",
+      "answer": true,
+      "explanation": "Usando uma tabela hash, é possível percorrer o array de caracteres uma única vez, marcando quais caracteres já foram vistos. Como cada caractere é processado uma vez, a complexidade é O(n). 5"
+    }
+  ]
+}

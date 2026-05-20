@@ -1,0 +1,30 @@
+node_modules/
+.vercel/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Env
+.env
+.env.*
+
+# Build caches
+coverage/
+.nyc_output/
+
+# Runtime artifacts
+data/*.db-journal
+data/*.db-shm
+data/*.db-wal
+
+# PDFs extraídos (intermediários)
+data/*.txt

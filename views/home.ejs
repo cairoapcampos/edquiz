@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Quizzes</title>
+    <link href="/vendor/bootstrap/bootstrap.min.css?v=<%= assetVersion %>" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=<%= assetVersion %>" />
+  </head>
+  <body>
+    <main class="container py-4 py-md-5">
+      <div class="mb-4">
+        <h1 class="h3 mb-1">Escolha o Quiz</h1>
+        <div class="text-secondary">Selecione o tipo de exercício para começar.</div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-12 col-md-6">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h2 class="h5 mb-2">Quiz de Estrutura de Dados</h2>
+              <p class="text-secondary mb-3">Questões de Sim/Não com explicação e placar.</p>
+              <a class="btn btn-primary" href="/simnao">Abrir</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="card-body">
+              <h2 class="h5 mb-2">Quiz de Complexidade de Código</h2>
+              <p class="text-secondary mb-3">Escolha a complexidade assintótica (Big-O) do código.</p>
+              <a class="btn btn-primary" href="/codigo">Abrir</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <script src="/vendor/bootstrap/bootstrap.bundle.min.js?v=<%= assetVersion %>"></script>
+  </body>
+</html>
+

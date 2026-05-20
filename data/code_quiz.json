@@ -1,0 +1,834 @@
+{
+  "generatedAt": "2026-05-19T22:47:09.221Z",
+  "count": 79,
+  "options": [
+    {
+      "key": "O(1)",
+      "label": "O(1)"
+    },
+    {
+      "key": "O(log n)",
+      "label": "O(log n)"
+    },
+    {
+      "key": "O(n)",
+      "label": "O(n)"
+    },
+    {
+      "key": "O(n log n)",
+      "label": "O(n log n)"
+    },
+    {
+      "key": "O(n^2)",
+      "label": "O(n²)"
+    },
+    {
+      "key": "O(m*n)",
+      "label": "O(m·n)"
+    },
+    {
+      "key": "O(n^3)",
+      "label": "O(n³)"
+    },
+    {
+      "key": "O(n^k)",
+      "label": "O(n^k)"
+    },
+    {
+      "key": "O(2^n)",
+      "label": "O(2^n)"
+    }
+  ],
+  "quiz": [
+    {
+      "id": "C|1",
+      "number": 1,
+      "title": "Acessar um elemento de uma lista",
+      "statement": "Atividade: Crie um programa que receba uma lista e mostre o elemento da posição 3.",
+      "code": "numeros = [10, 20, 30, 40, 50]\nprint(numeros[3])",
+      "answerKey": "O(1)",
+      "answerLabel": "O(1)",
+      "explanation": "Comentário: Há acesso direto a uma posição da lista. Não depende do tamanho da entrada."
+    },
+    {
+      "id": "C|2",
+      "number": 2,
+      "title": "Alterar um valor em uma posição específica",
+      "statement": "Atividade: Substitua o valor de uma posição específica de uma lista.",
+      "code": "numeros = [5, 8, 12, 20]\nnumeros[2] = 100\nprint(numeros)",
+      "answerKey": "O(1)",
+      "answerLabel": "O(1)",
+      "explanation": "Comentário: A alteração de um índice específico ocorre em tempo constante."
+    },
+    {
+      "id": "C|3",
+      "number": 3,
+      "title": "Consultar um valor em dicionário",
+      "statement": "Atividade: Dado um dicionário com nomes e idades, mostre a idade de uma pessoa.",
+      "code": "idades = {\"Ana\": 20, \"Carlos\": 25, \"Marina\": 22}\nprint(idades[\"Carlos\"])",
+      "answerKey": "O(1)",
+      "answerLabel": "O(1)",
+      "explanation": "Comentário: Considerando o caso médio de tabelas hash, a busca pela chave é O(1)."
+    },
+    {
+      "id": "C|4",
+      "number": 4,
+      "title": "Laço com limite constante",
+      "statement": "Atividade: Execute um laço com quantidade fixa de iterações.",
+      "code": "for i in range(100):\n    print(i)",
+      "answerKey": "O(1)",
+      "answerLabel": "O(1)",
+      "explanation": "Comentário: O número de iterações é constante, independentemente da entrada."
+    },
+    {
+      "id": "C|5",
+      "number": 5,
+      "title": "Acessar o primeiro elemento da lista",
+      "statement": "Atividade: Mostre o primeiro elemento de uma lista.",
+      "code": "n = [1, 2, 3, 4, 5]\nprint(n[0])",
+      "answerKey": "O(1)",
+      "answerLabel": "O(1)",
+      "explanation": "Comentário: O acesso por índice em uma lista é feito em tempo constante."
+    },
+    {
+      "id": "C|6",
+      "number": 6,
+      "title": "For com ponto de parada constante",
+      "statement": "Atividade: Interrompa o laço ao atingir um valor fixo.",
+      "code": "n = 6\nfor i in range(n):\n    if i == 5:\n        break\n    else:\n        print(i)",
+      "answerKey": "O(1)",
+      "answerLabel": "O(1)",
+      "explanation": "Comentário: O laço para em um valor constante, então o custo não cresce com n além desse limite\nfixo."
+    },
+    {
+      "id": "C|7",
+      "number": 7,
+      "title": "Acessar diretamente uma posição da lista",
+      "statement": "Analise a complexidade do código a seguir e explique o motivo.",
+      "code": "def acessar_primeiro(lista):\n    return lista[0]",
+      "answerKey": "O(1)",
+      "answerLabel": "O(1)",
+      "explanation": ". A função acessa diretamente uma posição da lista e retorna o valor. Não há laços nem\ndependência do tamanho da entrada."
+    },
+    {
+      "id": "C|8",
+      "number": 8,
+      "title": "Consultar uma chave em um dicionário Python",
+      "statement": "Analise a complexidade do trecho abaixo, considerando que d é um dicionário Python.",
+      "code": "def consultar(d, chave):\n   if chave in d:\n       return d[chave]\n   return None",
+      "answerKey": "O(1)",
+      "answerLabel": "O(1)",
+      "explanation": "no pior caso. Dicionários Python são baseados em tabela hash. Em média, a\nconsulta é constante, mas colisões ruins podem degradar o desempenho."
+    },
+    {
+      "id": "C|9",
+      "number": 9,
+      "title": "Verificar se um número é potência de 2",
+      "statement": "Atividade: Divida o número sucessivamente por 2 até chegar em 1 ou em um valor ímpar.",
+      "code": "n = 32\nwhile n > 1:\n   if n % 2 != 0:\n       print(\"Não é potência de 2\")\n       break\n   n //= 2\nelse:\n   print(\"É potência de 2\")",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": "Comentário: O valor é reduzido pela metade a cada iteração."
+    },
+    {
+      "id": "C|10",
+      "number": 10,
+      "title": "Busca binária em lista ordenada",
+      "statement": "Atividade: Implemente uma busca binária para localizar um valor em uma lista ordenada.",
+      "code": "def busca_binaria(lista, alvo):\n   inicio = 0\n   fim = len(lista) - 1\n    while inicio <= fim:\n        meio = (inicio + fim) // 2\n        if lista[meio] == alvo:\n            return meio\n        elif lista[meio] < alvo:\n            inicio = meio + 1\n        else:\n            fim = meio - 1\n    return -1\nlista = [2, 4, 6, 8, 10, 12]\nprint(busca_binaria(lista, 8))",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": "Comentário: A cada passo, metade da lista é descartada."
+    },
+    {
+      "id": "C|11",
+      "number": 11,
+      "title": "Contar quantas vezes é possível dividir por 2",
+      "statement": "Atividade: Descubra quantas divisões por 2 podem ser feitas até chegar em 1.",
+      "code": "n = 100\ncontador = 0\nwhile n > 1:\n   n //= 2\n   contador += 1\nprint(contador)",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": "Comentário: O laço executa uma quantidade de vezes proporcional a log₂(n)."
+    },
+    {
+      "id": "C|12",
+      "number": 12,
+      "title": "Repetir um processo de dobra até atingir um limite",
+      "statement": "Atividade: Começando em 1, dobre o valor até atingir ou ultrapassar n.",
+      "code": "n = 100\nvalor = 1\ncontador = 0\nwhile valor < n:\n    valor *= 2\n    contador += 1\nprint(\"Dobras necessárias:\", contador)",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": "Comentário: O valor cresce exponencialmente, então o número de iterações é logarítmico."
+    },
+    {
+      "id": "C|13",
+      "number": 13,
+      "title": "Busca binária com while",
+      "statement": "Atividade: Implemente busca binária apenas com while.",
+      "code": "lista = [1, 3, 5, 7, 9, 11]\nalvo = 7\ninicio = 0\nfim = len(lista) - 1\nwhile inicio <= fim:\n    meio = (inicio + fim) // 2\n    if lista[meio] == alvo:\n        print(\"Encontrado na posição\", meio)\n        break\n    elif lista[meio] < alvo:\n        inicio = meio + 1\n    else:\n        fim = meio - 1",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": "Comentário: Em cada iteração, a faixa de busca cai pela metade."
+    },
+    {
+      "id": "C|14",
+      "number": 14,
+      "title": "While com duplicação",
+      "statement": "Atividade: Dobre o valor de i até atingir n.",
+      "code": "n = 5\ni = 1\nwhile i < n:\n    i *= 2\n    print(i)",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": "Comentário: A variável cresce multiplicativamente, então o número de iterações é logarítmico."
+    },
+    {
+      "id": "C|15",
+      "number": 15,
+      "title": "Dividir o tamanho da entrada pela metade",
+      "statement": "Analise a complexidade do código a seguir. Considere n = len(lista).",
+      "code": "def imprimir_metades(lista):\n    n = len(lista)\n    while n > 1:\n        print(n)\n        n = n // 2",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": ". A variável n é dividida por 2 a cada iteração, então o número de passos cresce\nlogaritmicamente."
+    },
+    {
+      "id": "C|16",
+      "number": 16,
+      "title": "Busca binária",
+      "statement": "Analise a complexidade da busca binária abaixo. Diga também qual condição a lista precisa satisfazer.",
+      "code": "def busca_binaria(lista, alvo):\n    ini = 0\n    fim = len(lista) - 1\n    while ini <= fim:\n        meio = (ini + fim) // 2\n        if lista[meio] == alvo:\n            return meio\n        elif lista[meio] < alvo:\n            ini = meio + 1\n        else:\n            fim = meio - 1\n    return -1",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": ", desde que a lista esteja ordenada. A cada iteração, metade do intervalo de busca é\ndescartada. Sem lista ordenada, o algoritmo pode retornar resultado incorreto."
+    },
+    {
+      "id": "C|17",
+      "number": 17,
+      "title": "Multiplicar i por 2 até atingir n",
+      "statement": "Analise a complexidade do código a seguir.",
+      "code": "i = 1\nwhile i < n:\n   i *= 2\n   print(\"data\")",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": ". O valor de i é multiplicado por 2 a cada repetição: 1, 2, 4, 8, ..., n. Como o crescimento é\nexponencial, o número de repetições é logarítmico."
+    },
+    {
+      "id": "C|18",
+      "number": 18,
+      "title": "Dividir i por 2 até chegar a zero",
+      "statement": "Analise a complexidade do código a seguir.",
+      "code": "i = n\nwhile i > 0:\n   print(\"complexity\")\n   i //= 2",
+      "answerKey": "O(log n)",
+      "answerLabel": "O(log n)",
+      "explanation": ". O valor de i é dividido por 2 a cada repetição: n, n/2, n/4, ..., 1. Como o problema é reduzido\npela metade a cada passo, a complexidade é O(log n)."
+    },
+    {
+      "id": "C|19",
+      "number": 19,
+      "title": "Somar todos os elementos de uma lista",
+      "statement": "Atividade: Some todos os números de uma lista usando laço.",
+      "code": "numeros = [1, 2, 3, 4, 5]\nsoma = 0\nfor numero in numeros:\n   soma += numero\nprint(soma)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: Cada elemento da lista é visitado uma vez."
+    },
+    {
+      "id": "C|20",
+      "number": 20,
+      "title": "Encontrar o maior valor de uma lista",
+      "statement": "Atividade: Percorra a lista para descobrir o maior elemento.",
+      "code": "numeros = [7, 3, 15, 2, 9]\nmaior = numeros[0]\nfor numero in numeros:\n   if numero > maior:\n       maior = numero\nprint(maior)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: É necessário percorrer a lista inteira no pior caso."
+    },
+    {
+      "id": "C|21",
+      "number": 21,
+      "title": "Contar letras em uma palavra",
+      "statement": "Atividade: Conte quantas vezes uma determinada letra aparece em uma string.",
+      "code": "palavra = \"programacao\"\ncontador = 0\nfor letra in palavra:\n   if letra == \"a\":\n       contador += 1\nprint(contador)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: O algoritmo percorre todos os caracteres da string."
+    },
+    {
+      "id": "C|22",
+      "number": 22,
+      "title": "Verificar se um número está na lista",
+      "statement": "Atividade: Faça uma busca linear.",
+      "code": "numeros = [4, 8, 15, 16, 23, 42]\nalvo = 23\nfor numero in numeros:\n   if numero == alvo:\n       print(\"Encontrado\")\n       break\nelse:\n   print(\"Não encontrado\")",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: No pior caso, compara o alvo com todos os elementos."
+    },
+    {
+      "id": "C|23",
+      "number": 23,
+      "title": "Busca linear com while",
+      "statement": "Atividade: Procure um valor em uma lista usando while.",
+      "code": "numeros = [10, 20, 30, 40, 50]\nalvo = 40\ni = 0\nwhile i < len(numeros):\n   if numeros[i] == alvo:\n       print(\"Encontrado na posição\", i)\n       break\n   i += 1\nelse:\n   print(\"Não encontrado\")",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: No pior caso, o while percorre todos os elementos."
+    },
+    {
+      "id": "C|24",
+      "number": 24,
+      "title": "Contar quantos divisores um número possui",
+      "statement": "Atividade: Use for para testar todos os números até n.",
+      "code": "n = 12\nquantidade = 0\nfor i in range(1, n + 1):\n   if n % i == 0:\n       quantidade += 1\nprint(\"Quantidade de divisores:\", quantidade)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: São testados todos os valores de 1 até n."
+    },
+    {
+      "id": "C|25",
+      "number": 25,
+      "title": "Percorrer uma sequência com for",
+      "statement": "Atividade: Percorra uma sequência de tamanho n e imprima cada valor.",
+      "code": "n = 5\nfor i in range(n):\n   print(i)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: O laço percorre os n elementos uma única vez."
+    },
+    {
+      "id": "C|26",
+      "number": 26,
+      "title": "Laço externo variável e interno constante",
+      "statement": "Atividade: Para cada valor de i, execute um laço interno com 10 repetições.",
+      "code": "n = 6\nfor i in range(n):\n   for j in range(10):\n       print(i, j)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: O laço interno tem custo constante; assim, o total cresce linearmente com n."
+    },
+    {
+      "id": "C|27",
+      "number": 27,
+      "title": "Dois laços consecutivos de mesmo tamanho",
+      "statement": "Atividade: Percorra a mesma faixa duas vezes em laços separados.",
+      "code": "n = 5\nfor i in range(n):\n   print(i)\nfor j in range(n):\n   print(j)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: As duas partes somam n + n, que se simplifica para O(n)."
+    },
+    {
+      "id": "C|28",
+      "number": 28,
+      "title": "Laço interno interrompido por break",
+      "statement": "Atividade: Use dois laços, mas interrompa o laço interno imediatamente.",
+      "code": "n = 5\nfor i in range(n):\n   for j in range(n):\n       break",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: Para cada valor de i, o laço interno executa só uma vez, mantendo custo linear."
+    },
+    {
+      "id": "C|29",
+      "number": 29,
+      "title": "Laço variável seguido de laço constante",
+      "statement": "Atividade: Percorra n elementos e depois execute um laço de tamanho fixo.",
+      "code": "n = 5\nfor i in range(n):\n   print(i)\nfor j in range(1000):\n   print(j)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: O custo é O(n) + O(1); como o segundo laço é constante, o total fica O(n)."
+    },
+    {
+      "id": "C|30",
+      "number": 30,
+      "title": "Imprimir uma constante n vezes",
+      "statement": "Atividade: Repita a impressão de um valor constante dentro de um laço.",
+      "code": "n = 5\nfor i in range(n):\n   print(n)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: Embora o valor impresso seja constante, a operação acontece n vezes."
+    },
+    {
+      "id": "C|31",
+      "number": 31,
+      "title": "Laço linear seguido de operação constante",
+      "statement": "Atividade: Percorra n elementos e finalize com uma única instrução constante.",
+      "code": "n = 5\nfor i in range(n):\n   print(i)\nprint('fim')",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: Há n iterações no laço e apenas uma operação extra constante ao final."
+    },
+    {
+      "id": "C|32",
+      "number": 32,
+      "title": "Somar os elementos de uma lista",
+      "statement": "Analise a complexidade do código a seguir e explique o motivo.",
+      "code": "def soma(lista):\n   total = 0\n   for x in lista:\n       total += x\n   return total",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": ". O laço percorre todos os n elementos uma vez, fazendo trabalho constante em cada iteração."
+    },
+    {
+      "id": "C|33",
+      "number": 33,
+      "title": "Dois laços sequenciais sobre a mesma lista",
+      "statement": "Analise a complexidade do código a seguir. Considere n = len(lista).",
+      "code": "def exemplo(lista):\n   for x in lista:\n       print(x)\n   for y in lista:\n       print(y)",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": ", que simplifica para\nO(n)."
+    },
+    {
+      "id": "C|34",
+      "number": 34,
+      "title": "Inserir várias vezes no final de uma list",
+      "statement": "Analise a complexidade do código a seguir em uma list do Python.",
+      "code": "def inserir_final_varias_vezes(n):\n   lista = []\n   for i in range(n):\n       lista.append(i)\n   return lista",
+      "answerKey": "O(n)",
+      "answerLabel": "O(n)",
+      "explanation": "Comentário: O laço executa n vezes e cada append é O(1) amortizado, portanto o custo total é O(n)."
+    },
+    {
+      "id": "C|35",
+      "number": 35,
+      "title": "Imprimir elementos após ordenar",
+      "statement": "Atividade: Ordene uma lista antes de exibir seus elementos.",
+      "code": "numeros = [9, 3, 7, 1, 5]\nordenados = sorted(numeros)\nfor numero in ordenados:\n   print(numero)",
+      "answerKey": "O(n log n)",
+      "answerLabel": "O(n log n)",
+      "explanation": "Comentário: O custo dominante é a ordenação, que normalmente é O(n log n)."
+    },
+    {
+      "id": "C|36",
+      "number": 36,
+      "title": "Ordenar nomes em ordem alfabética",
+      "statement": "Atividade: Receba uma lista de nomes e exiba em ordem alfabética.",
+      "code": "nomes = [\"Carlos\", \"Ana\", \"Marina\", \"Bruno\"]\nnomes.sort()\nprint(nomes)",
+      "answerKey": "O(n log n)",
+      "answerLabel": "O(n log n)",
+      "explanation": "Comentário: O método de ordenação domina o tempo total."
+    },
+    {
+      "id": "C|37",
+      "number": 37,
+      "title": "Mesclar e ordenar duas listas",
+      "statement": "Atividade: Junte duas listas e ordene o resultado.",
+      "code": "lista1 = [8, 2, 6]\nlista2 = [1, 9, 3]\nresultado = lista1 + lista2\nresultado.sort()\nprint(resultado)",
+      "answerKey": "O(n log n)",
+      "answerLabel": "O(n log n)",
+      "explanation": "Comentário: A concatenação é linear, mas a ordenação do total domina."
+    },
+    {
+      "id": "C|38",
+      "number": 38,
+      "title": "Encontrar duplicados após ordenar",
+      "statement": "Atividade: Ordene a lista e depois verifique elementos vizinhos iguais.",
+      "code": "numeros = [4, 2, 7, 2, 9, 4]\nnumeros.sort()\nfor i in range(1, len(numeros)):\n    if numeros[i] == numeros[i - 1]:\n        print(\"Duplicado:\", numeros[i])",
+      "answerKey": "O(n log n)",
+      "answerLabel": "O(n log n)",
+      "explanation": "Comentário: Ordenar custa O(n log n), e a varredura depois é O(n)."
+    },
+    {
+      "id": "C|39",
+      "number": 39,
+      "title": "Contar divisões sucessivas dentro de um for",
+      "statement": "Atividade: Para cada número de 1 até n, divida sucessivamente por 2.",
+      "code": "n = 8\nfor i in range(1, n + 1):\n    valor = i\n    while valor > 1:\n        print(f\"{i} -> {valor}\")\n        valor //= 2",
+      "answerKey": "O(n log n)",
+      "answerLabel": "O(n log n)",
+      "explanation": "Comentário: Para cada i, o while executa aproximadamente log(i) vezes; somando tudo, resulta em\nO(n log n)."
+    },
+    {
+      "id": "C|40",
+      "number": 40,
+      "title": "Laço externo linear com laço interno logarítmico",
+      "statement": "Analise a complexidade do código a seguir.",
+      "code": "for i in range(1, n):\n    j = 1\n    while j < n:\n        j *= 2",
+      "answerKey": "O(n log n)",
+      "answerLabel": "O(n log n)",
+      "explanation": ". O laço externo executa proporcionalmente a n vezes. Para cada execução, o laço interno\nmultiplica j por 2 até alcançar n, sendo tratado como O(log n). Portanto, a complexidade total é O(n log n)."
+    },
+    {
+      "id": "C|41",
+      "number": 41,
+      "title": "Comparar todos os pares de elementos",
+      "statement": "Atividade: Mostre todos os pares possíveis de uma lista.",
+      "code": "numeros = [1, 2, 3, 4]\nfor i in range(len(numeros)):\n    for j in range(len(numeros)):\n        print(numeros[i], numeros[j])",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: Há dois laços aninhados, cada um percorrendo n posições."
+    },
+    {
+      "id": "C|42",
+      "number": 42,
+      "title": "Encontrar pares com soma igual a 10",
+      "statement": "Atividade: Verifique todos os pares possíveis de números.",
+      "code": "numeros = [2, 4, 6, 8, 1, 9]\nfor i in range(len(numeros)):\n    for j in range(i + 1, len(numeros)):\n        if numeros[i] + numeros[j] == 10:\n            print(numeros[i], numeros[j])",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: Mesmo com j começando em i+1, o número de comparações ainda cresce\nquadraticamente."
+    },
+    {
+      "id": "C|43",
+      "number": 43,
+      "title": "Matriz de multiplicação",
+      "statement": "Atividade: Gere uma tabela de multiplicação n x n.",
+      "code": "n = 4\nfor i in range(1, n + 1):\n    for j in range(1, n + 1):\n        print(i * j, end=\" \")\n    print()",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: São n linhas e n colunas, totalizando n² operações."
+    },
+    {
+      "id": "C|44",
+      "number": 44,
+      "title": "Verificar elementos repetidos em lista",
+      "statement": "Atividade: Descubra se há elementos repetidos comparando todos com todos.",
+      "code": "numeros = [3, 5, 7, 3]\nrepetido = False\nfor i in range(len(numeros)):\n   for j in range(i + 1, len(numeros)):\n       if numeros[i] == numeros[j]:\n           repetido = True\nprint(repetido)",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: Cada elemento é comparado com os seguintes."
+    },
+    {
+      "id": "C|45",
+      "number": 45,
+      "title": "Contar pares em uma lista com for e while",
+      "statement": "Atividade: Percorra a lista com for e, para cada posição, use while para comparar com os próximos elementos.",
+      "code": "numeros = [1, 2, 3, 4, 5]\nfor i in range(len(numeros)):\n   j = i + 1\n   while j < len(numeros):\n       print(numeros[i], numeros[j])\n       j += 1",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: O for externo percorre a lista, e o while interno percorre os elementos restantes."
+    },
+    {
+      "id": "C|46",
+      "number": 46,
+      "title": "Encontrar elementos repetidos usando for e while",
+      "statement": "Atividade: Verifique se há números repetidos em uma lista.",
+      "code": "numeros = [4, 7, 2, 4, 9, 2]\nfor i in range(len(numeros)):\n   j = i + 1\n   while j < len(numeros):\n       if numeros[i] == numeros[j]:\n           print(\"Repetido:\", numeros[i])\n       j += 1",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: A lógica é de comparação entre pares de posições."
+    },
+    {
+      "id": "C|47",
+      "number": 47,
+      "title": "Gerar uma tabela triangular",
+      "statement": "Atividade: Para cada linha, imprima valores da coluna até a posição da linha.",
+      "code": "n = 5\nfor i in range(1, n + 1):\n   j = 1\n   while j <= i:\n       print(j, end=\" \")\n       j += 1\n   print()",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: O total de impressões é 1 + 2 + ... + n, que é proporcional a n²."
+    },
+    {
+      "id": "C|48",
+      "number": 48,
+      "title": "Somar todos os pares possíveis",
+      "statement": "Atividade: Some todos os pares de elementos de uma lista.",
+      "code": "numeros = [1, 2, 3, 4]\nfor i in range(len(numeros)):\n   j = 0\n   while j < len(numeros):\n       print(numeros[i] + numeros[j])\n       j += 1",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: Cada elemento é combinado com todos os demais."
+    },
+    {
+      "id": "C|49",
+      "number": 49,
+      "title": "Construir matriz identidade manualmente",
+      "statement": "Atividade: Monte uma matriz identidade usando for e while.",
+      "code": "n = 4\nmatriz = []\nfor i in range(n):\n   linha = []\n   j = 0\n   while j < n:\n       if i == j:\n           linha.append(1)\n       else:\n           linha.append(0)\n       j += 1\n   matriz.append(linha)\nprint(matriz)",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: É preciso preencher n linhas com n colunas."
+    },
+    {
+      "id": "C|50",
+      "number": 50,
+      "title": "Verificar números primos em um intervalo",
+      "statement": "Atividade: Para cada número, teste divisores com while.",
+      "code": "limite = 10\nfor numero in range(2, limite + 1):\n   divisor = 2\n   primo = True\n    while divisor < numero:\n        if numero % divisor == 0:\n            primo = False\n            break\n        divisor += 1\n    if primo:\n        print(numero)",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: Para cada número até n, pode haver até n tentativas de divisão."
+    },
+    {
+      "id": "C|51",
+      "number": 51,
+      "title": "Exibir todas as permutações com repetição de tamanho 2",
+      "statement": "Atividade: Gere pares ordenados a partir de uma lista.",
+      "code": "letras = [\"A\", \"B\", \"C\"]\nfor i in range(len(letras)):\n   j = 0\n   while j < len(letras):\n       print(letras[i] + letras[j])\n       j += 1",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: São n opções para a primeira posição e n para a segunda."
+    },
+    {
+      "id": "C|52",
+      "number": 52,
+      "title": "Contar frequência de cada elemento",
+      "statement": "Atividade: Para cada elemento da lista, conte quantas vezes ele aparece.",
+      "code": "numeros = [1, 2, 2, 3, 1, 4]\nfor i in range(len(numeros)):\n    contador = 0\n    j = 0\n    while j < len(numeros):\n        if numeros[i] == numeros[j]:\n            contador += 1\n        j += 1\n    print(f\"{numeros[i]} aparece {contador} vezes\")",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: Para cada posição, a lista inteira é percorrida novamente."
+    },
+    {
+      "id": "C|53",
+      "number": 53,
+      "title": "Comparar palavras em uma lista",
+      "statement": "Atividade: Verifique quais palavras aparecem mais de uma vez.",
+      "code": "palavras = [\"gato\", \"cachorro\", \"gato\", \"pato\"]\nfor i in range(len(palavras)):\n    j = i + 1\n    while j < len(palavras):\n        if palavras[i] == palavras[j]:\n            print(\"Repetida:\", palavras[i])\n        j += 1",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: Cada palavra é comparada com as seguintes."
+    },
+    {
+      "id": "C|54",
+      "number": 54,
+      "title": "Verificar se matriz é simétrica",
+      "statement": "Atividade: Uma matriz é simétrica se A[i][j] == A[j][i].",
+      "code": "matriz = [\n    [1, 2, 3],\n    [2, 5, 6],\n    [3, 6, 9]\n]\nn = len(matriz)\nsimetrica = True\nfor i in range(n):\n    j = 0\n    while j < n:\n        if matriz[i][j] != matriz[j][i]:\n            simetrica = False\n        j += 1\nprint(\"Simétrica:\", simetrica)",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: É preciso comparar as posições da matriz em duas dimensões."
+    },
+    {
+      "id": "C|55",
+      "number": 55,
+      "title": "Imprimir pares de índices com dois for",
+      "statement": "Atividade: Use dois laços aninhados para imprimir pares de índices.",
+      "code": "n = 5\nfor i in range(n):\n    for j in range(n):\n        print(i, j)",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: Cada um dos dois laços percorre n posições, resultando em n · n."
+    },
+    {
+      "id": "C|56",
+      "number": 56,
+      "title": "Laço triangular",
+      "statement": "Atividade: Para cada i, percorra os valores de 0 até i - 1.",
+      "code": "n = 5\nfor i in range(n):\n    for j in range(i):\n        print(i, j)",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: O total de execuções é 0 + 1 + 2 + ... + (n-1), que é proporcional a n²."
+    },
+    {
+      "id": "C|57",
+      "number": 57,
+      "title": "Combinar laço linear com laço quadrático",
+      "statement": "Atividade: Execute um laço de n iterações e depois outro de n² iterações.",
+      "code": "n = 5\nfor i in range(n):\n    print(i)\nfor j in range(n * n):\n    print(j)",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "Comentário: A soma é O(n) + O(n²); o termo dominante é O(n²)."
+    },
+    {
+      "id": "C|58",
+      "number": 58,
+      "title": "Gerar todos os pares de elementos",
+      "statement": "Analise a complexidade do código a seguir. Considere n = len(lista).",
+      "code": "def pares(lista):\n    n = len(lista)\n    for i in range(n):\n        for j in range(n):\n            print(lista[i], lista[j])",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": ". Há dois laços aninhados, cada um com n iterações. O total é n · n."
+    },
+    {
+      "id": "C|59",
+      "number": 59,
+      "title": "Combinar laço linear com bloco quadrático",
+      "statement": "Analise a complexidade do código a seguir. Considere n = len(lista).",
+      "code": "def misto(lista):\n    n = len(lista)\n    for i in range(n):\n        print(i)\n    for i in range(n):\n        for j in range(n):\n            print(i, j)",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "= O(n²)."
+    },
+    {
+      "id": "C|60",
+      "number": 60,
+      "title": "Inserir várias vezes no início de uma list",
+      "statement": "Analise a complexidade do código a seguir em uma list do Python.",
+      "code": "def inserir_inicio_varias_vezes(n):\n    lista = []\n    for i in range(n):\n        lista.insert(0, i)\n    return lista",
+      "answerKey": "O(n^2)",
+      "answerLabel": "O(n²)",
+      "explanation": "devido ao deslocamento dos\nelementos."
+    },
+    {
+      "id": "C|61",
+      "number": 61,
+      "title": "Comparar duas strings caractere por caractere",
+      "statement": "Atividade: Mostre os caracteres em comum entre duas palavras.",
+      "code": "palavra1 = \"python\"\npalavra2 = \"typo\"\nfor i in range(len(palavra1)):\n   j = 0\n   while j < len(palavra2):\n       if palavra1[i] == palavra2[j]:\n           print(\"Em comum:\", palavra1[i])\n       j += 1",
+      "answerKey": "O(m*n)",
+      "answerLabel": "O(m·n)",
+      "explanation": "Comentário: A primeira string pode ter tamanho m e a segunda tamanho n. Cada caractere da\nprimeira é comparado com todos os caracteres da segunda."
+    },
+    {
+      "id": "C|62",
+      "number": 62,
+      "title": "Retângulo de asteriscos",
+      "statement": "Atividade: Imprima um retângulo usando for para linhas e while para colunas.",
+      "code": "linhas = 4\ncolunas = 6\nfor i in range(linhas):\n   j = 0\n   while j < colunas:\n       print(\"*\", end=\" \")\n       j += 1\n   print()",
+      "answerKey": "O(m*n)",
+      "answerLabel": "O(m·n)",
+      "explanation": "Comentário: O laço externo percorre as linhas e o laço interno percorre as colunas. Como as\ndimensões podem ser diferentes, a forma mais precisa é O(linhas · colunas), equivalente a O(m · n)."
+    },
+    {
+      "id": "C|63",
+      "number": 63,
+      "title": "Comparar elementos de duas listas",
+      "statement": "Atividade: Compare todos os elementos de uma lista com todos os da outra.",
+      "code": "lista1 = [1, 2, 3]\nlista2 = [3, 4, 5]\nfor a in lista1:\n   for b in lista2:\n       if a == b:\n           print(\"Elemento em comum:\", a)",
+      "answerKey": "O(m*n)",
+      "answerLabel": "O(m·n)",
+      "explanation": "Comentário: O primeiro laço percorre m elementos e o segundo percorre n."
+    },
+    {
+      "id": "C|64",
+      "number": 64,
+      "title": "Produto cartesiano entre duas listas",
+      "statement": "Atividade: Gere todas as combinações possíveis entre duas coleções.",
+      "code": "cores = [\"azul\", \"verde\"]\ntamanhos = [\"P\", \"M\", \"G\"]\nfor cor in cores:\n   for tamanho in tamanhos:\n       print(cor, tamanho)",
+      "answerKey": "O(m*n)",
+      "answerLabel": "O(m·n)",
+      "explanation": "Comentário: Cada item da primeira lista é combinado com todos da segunda."
+    },
+    {
+      "id": "C|65",
+      "number": 65,
+      "title": "Comparar palavras de duas listas",
+      "statement": "Atividade: Verifique quais palavras aparecem em ambas as listas.",
+      "code": "lista1 = [\"gato\", \"cachorro\", \"pato\"]\nlista2 = [\"pato\", \"peixe\", \"gato\"]\nfor palavra1 in lista1:\n   for palavra2 in lista2:\n       if palavra1 == palavra2:\n           print(palavra1)",
+      "answerKey": "O(m*n)",
+      "answerLabel": "O(m·n)",
+      "explanation": "Comentário: Novamente, há comparação total entre duas coleções."
+    },
+    {
+      "id": "C|66",
+      "number": 66,
+      "title": "Comparar todos os elementos de duas listas",
+      "statement": "Atividade: Misture for e while para procurar elementos em comum.",
+      "code": "lista1 = [1, 3, 5]\nlista2 = [2, 3, 4, 5]\nfor i in range(len(lista1)):\n   j = 0\n   while j < len(lista2):\n       if lista1[i] == lista2[j]:\n           print(\"Comum:\", lista1[i])\n       j += 1",
+      "answerKey": "O(m*n)",
+      "answerLabel": "O(m·n)",
+      "explanation": "Comentário: O laço externo percorre m posições, o interno percorre n."
+    },
+    {
+      "id": "C|67",
+      "number": 67,
+      "title": "Somar elementos de uma matriz",
+      "statement": "Atividade: Some todos os elementos de uma matriz usando for e while.",
+      "code": "matriz = [\n   [1, 2, 3],\n   [4, 5, 6]\n]\nsoma = 0\nfor i in range(len(matriz)):\n   j = 0\n   while j < len(matriz[i]):\n       soma += matriz[i][j]\n       j += 1\nprint(\"Soma total:\", soma)",
+      "answerKey": "O(m*n)",
+      "answerLabel": "O(m·n)",
+      "explanation": "Comentário: São percorridas m linhas e n colunas."
+    },
+    {
+      "id": "C|68",
+      "number": 68,
+      "title": "Buscar elemento em uma matriz",
+      "statement": "Analise a complexidade do código a seguir. Considere matriz com m linhas e n colunas.",
+      "code": "def buscar_matriz(matriz, alvo):\n   for linha in matriz:\n       for elemento in linha:\n           if elemento == alvo:\n                return True\n   return False",
+      "answerKey": "O(m*n)",
+      "answerLabel": "O(m·n)",
+      "explanation": "no pior caso. O algoritmo pode precisar visitar todas as células antes de encontrar o alvo ou\nconcluir que ele não existe."
+    },
+    {
+      "id": "C|69",
+      "number": 69,
+      "title": "Multiplicação de matrizes 2D",
+      "statement": "Atividade: Multiplique duas matrizes quadradas.",
+      "code": "A = [\n   [1, 2],\n   [3, 4]\n]\nB = [\n   [5, 6],\n   [7, 8]\n]\nn = len(A)\nresultado = [[0 for _ in range(n)] for _ in range(n)]\nfor i in range(n):\n   for j in range(n):\n         for k in range(n):\n             resultado[i][j] += A[i][k] * B[k][j]\nprint(resultado)",
+      "answerKey": "O(n^3)",
+      "answerLabel": "O(n³)",
+      "explanation": "Comentário: São três laços aninhados dependentes de n."
+    },
+    {
+      "id": "C|70",
+      "number": 70,
+      "title": "Contar combinações de trios",
+      "statement": "Atividade: Exiba todos os trios possíveis de uma lista.",
+      "code": "numeros = [1, 2, 3, 4]\nfor i in range(len(numeros)):\n    for j in range(len(numeros)):\n        for k in range(len(numeros)):\n            print(numeros[i], numeros[j], numeros[k])",
+      "answerKey": "O(n^3)",
+      "answerLabel": "O(n³)",
+      "explanation": "Comentário: Cada um dos três laços percorre n elementos."
+    },
+    {
+      "id": "C|71",
+      "number": 71,
+      "title": "Encontrar trios cuja soma seja 12",
+      "statement": "Atividade: Procure todas as combinações de três números com soma desejada.",
+      "code": "numeros = [2, 4, 6, 8, 1, 3]\nfor i in range(len(numeros)):\n    for j in range(i + 1, len(numeros)):\n        for k in range(j + 1, len(numeros)):\n            if numeros[i] + numeros[j] + numeros[k] == 12:\n                print(numeros[i], numeros[j], numeros[k])",
+      "answerKey": "O(n^3)",
+      "answerLabel": "O(n³)",
+      "explanation": "Comentário: Apesar das restrições de índice, o crescimento assintótico continua cúbico."
+    },
+    {
+      "id": "C|72",
+      "number": 72,
+      "title": "Multiplicação de matrizes com for e while",
+      "statement": "Atividade: Multiplique duas matrizes quadradas misturando estruturas de repetição.",
+      "code": "A = [\n    [1, 2],\n    [3, 4]\n]\nB = [\n    [5, 6],\n    [7, 8]\n]\nn = len(A)\nresultado = [[0] * n for _ in range(n)]\nfor i in range(n):\n    j = 0\n    while j < n:\n        k = 0\n        while k < n:\n            resultado[i][j] += A[i][k] * B[k][j]\n            k += 1\n        j += 1\nprint(resultado)",
+      "answerKey": "O(n^3)",
+      "answerLabel": "O(n³)",
+      "explanation": "Comentário: Os três índices independentes caracterizam crescimento cúbico."
+    },
+    {
+      "id": "C|73",
+      "number": 73,
+      "title": "Gerar trios de elementos",
+      "statement": "Atividade: Gere todas as combinações de três elementos.",
+      "code": "numeros = [1, 2, 3, 4]\nfor i in range(len(numeros)):\n   j = 0\n   while j < len(numeros):\n       k = 0\n       while k < len(numeros):\n           print(numeros[i], numeros[j], numeros[k])\n           k += 1\n       j += 1",
+      "answerKey": "O(n^3)",
+      "answerLabel": "O(n³)",
+      "explanation": "Comentário: Há três níveis de repetição dependentes de n."
+    },
+    {
+      "id": "C|74",
+      "number": 74,
+      "title": "Três laços aninhados",
+      "statement": "Atividade: Imprima todas as combinações de três índices.",
+      "code": "n = 5\nfor i in range(n):\n   for j in range(n):\n       for k in range(n):\n           print(i, j, k)",
+      "answerKey": "O(n^3)",
+      "answerLabel": "O(n³)",
+      "explanation": "Comentário: Três laços dependentes de n produzem crescimento cúbico."
+    },
+    {
+      "id": "C|75",
+      "number": 75,
+      "title": "Três laços aninhados",
+      "statement": "Analise a complexidade do código a seguir.",
+      "code": "def cubico(n):\n   total = 0\n   for i in range(n):\n       for j in range(n):\n           for k in range(n):\n                total += i + j + k\n   return total",
+      "answerKey": "O(n^3)",
+      "answerLabel": "O(n³)",
+      "explanation": ". Existem três laços aninhados, cada um executando n vezes, com trabalho constante no corpo\ninterno."
+    },
+    {
+      "id": "C|76",
+      "number": 76,
+      "title": "Comparar três listas",
+      "statement": "Atividade: Encontre valores que aparecem nas três listas.",
+      "code": "lista1 = [1, 2, 3]\nlista2 = [2, 3, 4]\nlista3 = [3, 5, 2]\nfor i in range(len(lista1)):\n   j = 0\n   while j < len(lista2):\n       k = 0\n       while k < len(lista3):\n           if lista1[i] == lista2[j] == lista3[k]:\n               print(\"Comum nas três:\", lista1[i])\n           k += 1\n       j += 1",
+      "answerKey": "O(n^3)",
+      "answerLabel": "O(n³)",
+      "explanation": "Comentário: Quando as três listas têm tamanho n, o custo é cúbico; no caso geral, é o produto dos\ntrês tamanhos."
+    },
+    {
+      "id": "C|77",
+      "number": 77,
+      "title": "Laços aninhados com k níveis",
+      "statement": "Atividade: Crie uma função que use k laços aninhados de forma recursiva.",
+      "code": "def gerar_combinacoes(valores, k, atual=[]):\n   if len(atual) == k:\n       print(atual)\n       return\n    for valor in valores:\n        gerar_combinacoes(valores, k, atual + [valor])\ngerar_combinacoes([1, 2, 3], 2)",
+      "answerKey": "O(n^k)",
+      "answerLabel": "O(n^k)",
+      "explanation": "Comentário: Para cada uma das k posições, há n possibilidades."
+    },
+    {
+      "id": "C|78",
+      "number": 78,
+      "title": "Gerar senhas de tamanho k",
+      "statement": "Atividade: Gere todas as sequências possíveis de tamanho k a partir de um conjunto de símbolos.",
+      "code": "def gerar_senhas(caracteres, k, senha=\"\"):\n   if len(senha) == k:\n       print(senha)\n       return\n    for c in caracteres:\n        gerar_senhas(caracteres, k, senha + c)\ngerar_senhas(\"ab\", 3)",
+      "answerKey": "O(n^k)",
+      "answerLabel": "O(n^k)",
+      "explanation": "Comentário: Cada posição da senha pode ser preenchida de n maneiras."
+    },
+    {
+      "id": "C|79",
+      "number": 79,
+      "title": "Problema da mochila por força bruta simplificada",
+      "statement": "Atividade: Teste todas as combinações possíveis de itens para encontrar as válidas.",
+      "code": "itens = [2, 3, 4]\ncapacidade = 5\ndef testar(indice=0, soma=0):\n   if indice == len(itens):\n       if soma <= capacidade:\n           print(\"Soma válida:\", soma)\n       return\n    testar(indice + 1, soma)\n    testar(indice + 1, soma + itens[indice])\ntestar()",
+      "answerKey": "O(2^n)",
+      "answerLabel": "O(2^n)",
+      "explanation": "Comentário: Cada item gera duas possibilidades: pegar ou não pegar."
+    }
+  ]
+}
