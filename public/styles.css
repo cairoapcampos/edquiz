@@ -27,6 +27,28 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
+/* Easter Egg: Toasty */
+.toasty {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 160px;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translateX(120%);
+}
+
+.toasty.show {
+  animation: toasty 6s ease forwards;
+}
+
+@keyframes toasty {
+  0%   { transform: translateX(120%); }
+  5%   { transform: translateX(0); }
+  88%  { transform: translateX(0); }
+  100% { transform: translateX(120%); }
+}
+
 .card {
   background: rgba(255, 255, 255, 0.92);
 }

@@ -23,9 +23,21 @@ const timerBadgeEl = el('timerBadge');
 let current = null;
 let locked = false;
 let options = [];
+let consecutiveErrors = 0;
 
 let timerInterval = null;
 let timerStartedAt = null;
+
+function triggerToasty() {
+  const toastyEl = document.getElementById('toasty');
+  const audio = document.getElementById('toasty-audio');
+  if (!toastyEl) return;
+  toastyEl.classList.remove('show');
+  void toastyEl.offsetWidth;
+  toastyEl.classList.add('show');
+  if (audio) { audio.currentTime = 0; audio.play().catch(() => {}); }
+  toastyEl.addEventListener('animationend', () => toastyEl.classList.remove('show'), { once: true });
+}
 
 async function api(path, opts = {}) {
   const res = await fetch(path, {
@@ -286,6 +298,16 @@ async function submit() {
   resultEl.textContent = data.correct ? 'Correto.' : `Incorreto. Resposta certa: ${data.correctAnswer.label}.`;
   resultEl.className = data.correct ? 'alert alert-success' : 'alert alert-danger';
   explainTextEl.textContent = data.explanation || '—';
+
+  if (data.correct) {
+    consecutiveErrors = 0;
+  } else {
+    consecutiveErrors += 1;
+    if (consecutiveErrors >= 5) {
+      consecutiveErrors = 0;
+      triggerToasty();
+    }
+  }
 
   if (data.done) {
     setButtons([btn('Ver resultado', 'btn-primary', () => renderDone(data.scoreboard, data.progress.total))]);
