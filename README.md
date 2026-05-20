@@ -40,9 +40,3 @@ Saída:
 `data/quiz.json` deve ter:
 
 - `quiz`: array de itens com `id`, `question`, `answer` (boolean) e opcionalmente `explanation`, `parte`, `chapter`, `section`, `number`.
-
-## Deploy na Vercel
-
-- A Vercel usa `api/index.js` como Serverless Function e roteia tudo para ela via `vercel.json`.
-- Commite `data/quiz.json`.
-- O Bootstrap é servido localmente em `public/vendor/bootstrap/` (sem CDN).
