@@ -35,7 +35,7 @@ function triggerToasty() {
   toastyEl.classList.remove('show');
   void toastyEl.offsetWidth;
   toastyEl.classList.add('show');
-  if (audio) { audio.currentTime = 0; audio.play().catch(() => {}); }
+  if (audio) { audio.currentTime = 0; audio.play().catch(() => { }); }
   toastyEl.addEventListener('animationend', () => toastyEl.classList.remove('show'), { once: true });
 }
 

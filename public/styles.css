@@ -43,10 +43,21 @@ body {
 }
 
 @keyframes toasty {
-  0%   { transform: translateX(120%); }
-  5%   { transform: translateX(0); }
-  88%  { transform: translateX(0); }
-  100% { transform: translateX(120%); }
+  0% {
+    transform: translateX(120%);
+  }
+
+  5% {
+    transform: translateX(0);
+  }
+
+  88% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 .card {

@@ -556,9 +556,9 @@
       "partNumber": 4,
       "partTitle": "Parte 4 — Algoritmos de ordenação",
       "number": 62,
-      "question": "Considerando o método de partição indicado no enunciado, ao aplicar o quicksort à sequência abaixo, usando 56 como primeiro pivô, a sequência obtida após a primeira fase será 34, 12, 23, 45, 56, 99, 66, 78, 89? 56, 89, 23, 99, 45, 12, 66, 78, 34",
+      "question": "Ao aplicar o quicksort à sequência 56, 89, 23, 99, 45, 12, 66, 78, 34, usando 56 como primeiro pivô, a sequência obtida após a primeira fase será 34, 12, 23, 45, 56, 99, 66, 78, 89?",
       "answer": true,
-      "explanation": "Considerando o método de partição indicado no enunciado, após a primeira fase do quicksort com 56 como pivô, os valores menores ficam antes do pivô e os maiores depois, resultando na sequência: 34, 12, 23, 45, 56, 99, 66, 78, 89."
+      "explanation": "Após a primeira fase do quicksort com 56 como pivô, os valores menores ficam antes do pivô e os maiores depois, resultando na sequência: 34, 12, 23, 45, 56, 99, 66, 78, 89."
     },
     {
       "id": "Q|63",
@@ -567,7 +567,7 @@
       "number": 63,
       "question": "É correto afirmar que o quicksort pode ser considerado um algoritmo de divisão e conquista porque particiona o vetor em subproblemas menores a partir de um pivô?",
       "answer": true,
-      "explanation": "O quicksort é de divisão e conquista porque divide o problema em subproblemas menores a partir de um pivô e ordena as partes resultantes. 3"
+      "explanation": "O quicksort é de divisão e conquista porque divide o problema em subproblemas menores a partir de um pivô e ordena as partes resultantes."
     },
     {
       "id": "Q|64",
@@ -747,7 +747,7 @@
       "number": 83,
       "question": "É correto afirmar que, na varredura em pós-ordem de uma árvore, o nó raiz é visitado por último?",
       "answer": true,
-      "explanation": "Na varredura em pós-ordem, a ordem de visita é: subárvore esquerda, subárvore direita e, por último, a raiz. 4"
+      "explanation": "Na varredura em pós-ordem, a ordem de visita é: subárvore esquerda, subárvore direita e, por último, a raiz."
     },
     {
       "id": "Q|84",
@@ -909,7 +909,7 @@
       "number": 101,
       "question": "É correto afirmar que a remoção de caracteres duplicados de um array de caracteres pode ter complexidade O(n) quando se usa uma tabela hash para marcar os caracteres já processados?\n 6",
       "answer": true,
-      "explanation": "Usando uma tabela hash, é possível percorrer o array de caracteres uma única vez, marcando quais caracteres já foram vistos. Como cada caractere é processado uma vez, a complexidade é O(n). 5"
+      "explanation": "Usando uma tabela hash, é possível percorrer o array de caracteres uma única vez, marcando quais caracteres já foram vistos. Como cada caractere é processado uma vez, a complexidade é O(n)."
     }
   ]
 }
