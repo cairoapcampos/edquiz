@@ -58,16 +58,61 @@ function parseCookies(req) {
   return out;
 }
 
-/** @type {Map<string,{order:number[],index:number,hits:number,misses:number,skips:number,answers:{id:string,type:'answer'|'skip',answer?:boolean,correct?:boolean}[]}>} */
-const sessions = new Map();
-/** @type {Map<string,{order:number[],index:number,mode:'normal'|'complexity',hits:number,misses:number,skips:number,answers:{id:string,type:'answer'|'skip',choiceKey?:string,correct?:boolean}[]}>} */
-const codeSessions = new Map();
+// Sessões stateless: o estado é serializado no próprio cookie para funcionar
+// em ambientes serverless (ex: Vercel) onde instâncias não compartilham memória.
+
+function encodeSession(session) {
+  // Mantém apenas os últimos 10 registros de 'answers' para limitar o tamanho do cookie
+  const trimmed = { ...session, answers: (session.answers || []).slice(-10) };
+  return Buffer.from(JSON.stringify(trimmed)).toString('base64url');
+}
+
+function decodeSession(str) {
+  try {
+    const parsed = JSON.parse(Buffer.from(str, 'base64url').toString('utf8'));
+    if (!parsed || !Array.isArray(parsed.order)) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
 
 function getSession(req) {
   const cookies = parseCookies(req);
-  const sid = cookies.sid;
-  if (!sid) return null;
-  return { sid, session: sessions.get(sid) ?? null };
+  const raw = cookies.sid;
+  if (!raw) return null;
+  const session = decodeSession(raw);
+  return session ? { session } : null;
+}
+
+function saveSession(res, session) {
+  res.setHeader('Set-Cookie', `sid=${encodeSession(session)}; Path=/; HttpOnly; SameSite=Lax`);
+}
+
+function encodeCodeSession(session) {
+  const trimmed = { ...session, answers: (session.answers || []).slice(-10) };
+  return Buffer.from(JSON.stringify(trimmed)).toString('base64url');
+}
+
+function decodeCodeSession(str) {
+  try {
+    const parsed = JSON.parse(Buffer.from(str, 'base64url').toString('utf8'));
+    if (!parsed || !Array.isArray(parsed.order)) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function getCodeSession(req) {
+  const cookies = parseCookies(req);
+  const raw = cookies.code_sid;
+  if (!raw) return null;
+  return decodeCodeSession(raw);
+}
+
+function saveCodeSession(res, session) {
+  res.setHeader('Set-Cookie', `code_sid=${encodeCodeSession(session)}; Path=/; HttpOnly; SameSite=Lax`);
 }
 
 function makePublicQuestion(q) {
@@ -206,13 +251,11 @@ export function createApp() {
   });
 
   app.post('/api/code/start', (req, res) => {
-    const sid = crypto.randomBytes(16).toString('hex');
     const random = req.body?.random !== undefined ? !!req.body.random : true;
     const mode = typeof req.body?.mode === 'string' ? req.body.mode : 'normal';
     const order = mode === 'complexity' ? buildCodeOrderByComplexity() : buildCodeOrder({ random });
     const session = { order, index: 0, mode: mode === 'complexity' ? 'complexity' : 'normal', hits: 0, misses: 0, skips: 0, answers: [] };
-    codeSessions.set(sid, session);
-    res.setHeader('Set-Cookie', `code_sid=${encodeURIComponent(sid)}; Path=/; HttpOnly; SameSite=Lax`);
+    saveCodeSession(res, session);
 
     const q = currentCodeQuestion(session);
     res.setHeader('Cache-Control', 'no-store');
@@ -226,10 +269,8 @@ export function createApp() {
   });
 
   app.post('/api/code/restart', (req, res) => {
-    const cookies = parseCookies(req);
-    const sid = cookies.code_sid;
-    const session = sid ? codeSessions.get(sid) : null;
-    if (!sid || !session) return res.status(400).json({ ok: false, error: 'Sessão inválida. Clique em "Começar".' });
+    const session = getCodeSession(req);
+    if (!session) return res.status(400).json({ ok: false, error: 'Sessão inválida. Clique em "Começar".' });
 
     const random = req.body?.random !== undefined ? !!req.body.random : true;
     const mode = typeof req.body?.mode === 'string' ? req.body.mode : 'normal';
@@ -243,6 +284,7 @@ export function createApp() {
     session.answers = [];
 
     const q = currentCodeQuestion(session);
+    saveCodeSession(res, session);
     res.setHeader('Cache-Control', 'no-store');
     res.json({
       ok: true,
@@ -254,10 +296,8 @@ export function createApp() {
   });
 
   app.post('/api/code/answer', (req, res) => {
-    const cookies = parseCookies(req);
-    const sid = cookies.code_sid;
-    const session = sid ? codeSessions.get(sid) : null;
-    if (!sid || !session) return res.status(400).json({ ok: false, error: 'Sessão inválida. Clique em "Começar".' });
+    const session = getCodeSession(req);
+    if (!session) return res.status(400).json({ ok: false, error: 'Sessão inválida. Clique em "Começar".' });
 
     const body = req.body;
     if (!body || typeof body.id !== 'string' || typeof body.choiceKey !== 'string') {
@@ -286,6 +326,7 @@ export function createApp() {
     session.index += 1;
 
     const next = currentCodeQuestion(session);
+    saveCodeSession(res, session);
     res.setHeader('Cache-Control', 'no-store');
     return res.json({
       ok: true,
@@ -300,10 +341,8 @@ export function createApp() {
   });
 
   app.post('/api/code/skip', (req, res) => {
-    const cookies = parseCookies(req);
-    const sid = cookies.code_sid;
-    const session = sid ? codeSessions.get(sid) : null;
-    if (!sid || !session) return res.status(400).json({ ok: false, error: 'Sessão inválida. Clique em "Começar".' });
+    const session = getCodeSession(req);
+    if (!session) return res.status(400).json({ ok: false, error: 'Sessão inválida. Clique em "Começar".' });
 
     const body = req.body;
     if (!body || typeof body.id !== 'string') {
@@ -330,6 +369,7 @@ export function createApp() {
     session.index += 1;
 
     const next = currentCodeQuestion(session);
+    saveCodeSession(res, session);
     res.setHeader('Cache-Control', 'no-store');
     return res.json({
       ok: true,
@@ -341,10 +381,8 @@ export function createApp() {
   });
 
   app.post('/api/code/back', (req, res) => {
-    const cookies = parseCookies(req);
-    const sid = cookies.code_sid;
-    const session = sid ? codeSessions.get(sid) : null;
-    if (!sid || !session) return res.status(400).json({ ok: false, error: 'Sessão inválida. Clique em "Começar".' });
+    const session = getCodeSession(req);
+    if (!session) return res.status(400).json({ ok: false, error: 'Sessão inválida. Clique em "Começar".' });
 
     if (session.index <= 0 || session.answers.length === 0) {
       return res.status(400).json({ ok: false, error: 'Não há questão anterior.' });
@@ -369,6 +407,7 @@ export function createApp() {
     }
 
     const q = currentCodeQuestion(session);
+    saveCodeSession(res, session);
     res.setHeader('Cache-Control', 'no-store');
     return res.json({
       ok: true,
@@ -380,13 +419,11 @@ export function createApp() {
   });
 
   app.post('/api/start', (req, res) => {
-    const sid = crypto.randomBytes(16).toString('hex');
     const random = req.body?.random !== undefined ? !!req.body.random : true;
     const part = typeof req.body?.part === 'string' ? req.body.part : 'all';
     const order = buildOrder({ random, part });
     const session = { order, index: 0, hits: 0, misses: 0, skips: 0, answers: [] };
-    sessions.set(sid, session);
-    res.setHeader('Set-Cookie', `sid=${encodeURIComponent(sid)}; Path=/; HttpOnly; SameSite=Lax`);
+    saveSession(res, session);
 
     const q = currentQuestion(session);
     res.setHeader('Cache-Control', 'no-store');
@@ -430,6 +467,7 @@ export function createApp() {
     session.index += 1;
 
     const next = currentQuestion(session);
+    saveSession(res, session);
     res.setHeader('Cache-Control', 'no-store');
     return res.json({
       ok: true,
@@ -458,6 +496,7 @@ export function createApp() {
     info.session.answers = [];
 
     const q = currentQuestion(info.session);
+    saveSession(res, info.session);
     res.setHeader('Cache-Control', 'no-store');
     res.json({
       ok: true,
@@ -497,6 +536,7 @@ export function createApp() {
     session.index += 1;
 
     const next = currentQuestion(session);
+    saveSession(res, session);
     res.setHeader('Cache-Control', 'no-store');
     return res.json({
       ok: true,
@@ -546,6 +586,7 @@ export function createApp() {
     }
 
     const q = currentQuestion(session);
+    saveSession(res, session);
     res.setHeader('Cache-Control', 'no-store');
     return res.json({
       ok: true,

@@ -1,8 +1,18 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "data/**,views/**,public/**"
+    }
+  },
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/index.js" },
-    { "src": "/(.*)", "dest": "/api/index.js" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js"
+    }
   ]
 }
-
