@@ -1,9 +1,30 @@
 body {
   background:
-    radial-gradient(1200px 800px at 15% 10%, rgba(0, 0, 0, 0.06), transparent 60%),
-    radial-gradient(900px 600px at 85% 0%, rgba(0, 0, 0, 0.05), transparent 60%),
+    url('/images/fundo.png') center center / cover no-repeat fixed,
     linear-gradient(180deg, #f6f7fb, #eef1f7);
   min-height: 100vh;
+}
+
+.home-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fadeInUp 0.45s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
 .card {
