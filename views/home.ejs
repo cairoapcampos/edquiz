@@ -89,6 +89,11 @@
       style="border-radius:8px"></iframe>
   </div>
 
+  <footer class="text-center text-secondary py-4" style="font-size:0.8rem">
+    &copy; <span id="footer-year"></span> by Cairo Aparecido Campos. Todos os direitos reservados.
+    <script>document.getElementById('footer-year').textContent=new Date().getFullYear();</script>
+  </footer>
+
   <script src="/vendor/bootstrap/bootstrap.bundle.min.js?v=<%= assetVersion %>"></script>
   <script>
     fetch('/api/meta').then(r => r.json()).then(d => {
