@@ -556,9 +556,9 @@
       "partNumber": 4,
       "partTitle": "Parte 4 — Algoritmos de ordenação",
       "number": 62,
-      "question": "Ao aplicar o quicksort à sequência 56, 89, 23, 99, 45, 12, 66, 78, 34, usando 56 como primeiro pivô, a sequência obtida após a primeira fase será 34, 12, 23, 45, 56, 99, 66, 78, 89?",
+      "question": "Ao aplicar o quicksort à sequência 56, 89, 23, 99, 45, 12, 66, 78, 34, usando 56 como primeiro pivô e considerando uma partição que preserva a ordem relativa dos elementos menores e maiores em relação ao pivô, a sequência obtida após a primeira fase será 23, 45, 12, 34, 56, 89, 99, 66, 78?",
       "answer": true,
-      "explanation": "Após a primeira fase do quicksort com 56 como pivô, os valores menores ficam antes do pivô e os maiores depois, resultando na sequência: 34, 12, 23, 45, 56, 99, 66, 78, 89."
+      "explanation": "Após a primeira fase do quicksort com 56 como pivô, os valores menores que 56 ficam antes do pivô e os valores maiores ficam depois. Considerando uma partição que preserva a ordem original dos elementos em cada grupo, a sequência resultante é: 23, 45, 12, 34, 56, 89, 99, 66, 78."
     },
     {
       "id": "Q|63",
