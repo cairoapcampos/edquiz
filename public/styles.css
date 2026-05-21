@@ -27,6 +27,19 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
+/* Dica de atalho de teclado nos botões */
+kbd.kbd-hint {
+  font-size: 0.65em;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.18);
+  color: inherit;
+  border: none;
+  vertical-align: middle;
+  font-family: inherit;
+  opacity: 0.85;
+}
+
 /* Easter Egg: Toasty */
 .toasty {
   position: fixed;

@@ -161,7 +161,9 @@ function renderQuestion(q, progress, scoreboard) {
   }
 
   const yesBtn = btn('Sim', 'btn-success', () => submit(true));
+  yesBtn.innerHTML += ' <kbd class="kbd-hint">S</kbd>';
   const noBtn = btn('Não', 'btn-danger', () => submit(false));
+  noBtn.innerHTML += ' <kbd class="kbd-hint">N</kbd>';
   const skipBtn = btnWithIcon({
     label: 'Pular',
     klass: 'btn-warning',
@@ -169,6 +171,7 @@ function renderQuestion(q, progress, scoreboard) {
     iconAlt: 'Canguru',
     onClick: () => skip(),
   });
+  skipBtn.innerHTML += ' <kbd class="kbd-hint">P</kbd>';
   const restartBtn = btn('Reiniciar', 'btn-dark', () => restartToHome());
   const backBtn = btnWithIcon({
     label: 'Voltar',
@@ -177,6 +180,7 @@ function renderQuestion(q, progress, scoreboard) {
     iconAlt: 'Voltar',
     onClick: () => back(),
   });
+  backBtn.innerHTML += ' <kbd class="kbd-hint">←</kbd>';
   backBtn.disabled = progress.index <= 1;
   setButtons([backBtn, yesBtn, noBtn, skipBtn, restartBtn]);
 }
@@ -378,6 +382,32 @@ async function loadMeta() {
 
 el('startBtn').addEventListener('click', () => start().catch((e) => alert(e.message)));
 loadMeta();
+
+// Atalhos de teclado
+document.addEventListener('keydown', (e) => {
+  const tag = document.activeElement?.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  if (!current || locked) return;
+  switch (e.key) {
+    case 's': case 'S':
+      e.preventDefault();
+      submit(true);
+      break;
+    case 'n': case 'N':
+      e.preventDefault();
+      submit(false);
+      break;
+    case 'p': case 'P':
+      e.preventDefault();
+      skip();
+      break;
+    case 'ArrowLeft': {
+      const backBtn = actionsEl.querySelector('button.btn-info');
+      if (backBtn && !backBtn.disabled) { e.preventDefault(); back(); }
+      break;
+    }
+  }
+});
 
 // Timer prefs + UI
 (() => {
