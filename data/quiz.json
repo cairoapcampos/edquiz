@@ -124,7 +124,7 @@
       "partNumber": 2,
       "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
       "number": 14,
-      "question": "A inserção de um elemento no início, posição 0, de um array de tamanho N ocorre em tempo constante O(1)?",
+      "question": "A inserção de um elemento no início, posição 0, de um array dinâmico do tipo List de tamanho N ocorre em tempo constante O(1)?",
       "answer": false,
       "explanation": "É necessário deslocar os itens existentes para a direita, o que custa O(N)."
     },
