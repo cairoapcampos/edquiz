@@ -207,10 +207,14 @@ function renderQuestion(q, progress, scoreboard) {
   renderChoices();
 
   const backBtn = btnWithIcon({ label: 'Voltar', klass: 'btn-info', iconSrc: '/icons/arrow-left.svg', onClick: () => back() });
+  backBtn.innerHTML += ' <kbd class="kbd-hint">←</kbd>';
   backBtn.disabled = progress.index <= 1;
   const skipBtn = btnWithIcon({ label: 'Pular', klass: 'btn-warning', iconSrc: '/icons/kangaroo.svg', onClick: () => skip() });
+  skipBtn.innerHTML += ' <kbd class="kbd-hint">P</kbd>';
   const restartBtn = btn('Reiniciar', 'btn-dark', () => restartToHome());
+  restartBtn.innerHTML += ' <kbd class="kbd-hint">R</kbd>';
   const answerBtn = btn('Responder', 'btn-primary', () => submit());
+  answerBtn.innerHTML += ' <kbd class="kbd-hint">Enter</kbd>';
 
   setButtons([backBtn, answerBtn, skipBtn, restartBtn]);
 }
@@ -379,6 +383,32 @@ async function loadMeta() {
 }
 
 loadMeta();
+
+// Atalhos de teclado
+document.addEventListener('keydown', (e) => {
+  const tag = document.activeElement?.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  if (!current || locked) return;
+  switch (e.key) {
+    case 'Enter':
+      e.preventDefault();
+      submit();
+      break;
+    case 'p': case 'P':
+      e.preventDefault();
+      skip();
+      break;
+    case 'ArrowLeft': {
+      const backBtn = actionsEl.querySelector('button.btn-info');
+      if (backBtn && !backBtn.disabled) { e.preventDefault(); back(); }
+      break;
+    }
+    case 'r': case 'R':
+      e.preventDefault();
+      restartToHome();
+      break;
+  }
+});
 
 // Timer prefs
 (() => {
