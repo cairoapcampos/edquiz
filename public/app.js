@@ -173,6 +173,7 @@ function renderQuestion(q, progress, scoreboard) {
   });
   skipBtn.innerHTML += ' <kbd class="kbd-hint">P</kbd>';
   const restartBtn = btn('Reiniciar', 'btn-dark', () => restartToHome());
+  restartBtn.innerHTML += ' <kbd class="kbd-hint">R</kbd>';
   const backBtn = btnWithIcon({
     label: 'Voltar',
     klass: 'btn-info',
@@ -406,6 +407,10 @@ document.addEventListener('keydown', (e) => {
       if (backBtn && !backBtn.disabled) { e.preventDefault(); back(); }
       break;
     }
+    case 'r': case 'R':
+      e.preventDefault();
+      restartToHome();
+      break;
   }
 });
 
