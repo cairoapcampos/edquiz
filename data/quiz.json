@@ -90,7 +90,7 @@
       "number": 10,
       "question": "O pior caso representa o maior custo possível de uma operação ou algoritmo para entradas de determinado tamanho?",
       "answer": true,
-      "explanation": "É a situação de maior custo para uma entrada de tamanho n. Parte 2 — Arrays, listas dinâmicas e listas encadeadas"
+      "explanation": "É a situação de maior custo para uma entrada de tamanho n."
     },
     {
       "id": "Q|11",
@@ -160,7 +160,7 @@
       "partNumber": 2,
       "partTitle": "Parte 2 — Arrays, listas dinâmicas e listas encadeadas",
       "number": 18,
-      "question": "A operação append() pode custar O(n) em uma execução específica quando há realocação interna?\n 1",
+      "question": "A operação append() pode custar O(n) em uma execução específica quando há realocação interna?",
       "answer": true,
       "explanation": "Quando a capacidade acaba, a lista pode precisar criar um bloco maior e copiar os elementos."
     },
@@ -198,7 +198,7 @@
       "number": 22,
       "question": "Na lista encadeada simples, inserir no início é O(1), pois basta atualizar a cabeça da lista?",
       "answer": true,
-      "explanation": "Basta criar o novo nó e apontar a cabeça para ele. 1"
+      "explanation": "Basta criar o novo nó e apontar a cabeça para ele."
     },
     {
       "id": "Q|23",
@@ -270,7 +270,7 @@
       "number": 30,
       "question": "Em uma lista encadeada que possui apenas um ponteiro head apontando para o início, estão corretas as seguintes complexidades? - Inserção no início: O(1) - Inserção no fim: O(n) - Exclusão do nó inicial: O(1) - Exclusão do último nó: O(n)",
       "answer": true,
-      "explanation": "Inserir no início e excluir o nó inicial são operações O(1), pois envolvem apenas atualização do ponteiro head. Já inserir no fim ou excluir o último nó exige percorrer a lista até o final, resultando em O(n). Parte 3 — Pilhas, filas, deques e listas circulares"
+      "explanation": "Inserir no início e excluir o nó inicial são operações O(1), pois envolvem apenas atualização do ponteiro head. Já inserir no fim ou excluir o último nó exige percorrer a lista até o final, resultando em O(n)."
     },
     {
       "id": "Q|31",
@@ -340,7 +340,7 @@
       "partNumber": 3,
       "partTitle": "Parte 3 — Pilhas, filas, deques e listas circulares",
       "number": 38,
-      "question": "A pilha é uma estrutura recomendada para criar o recurso de desfazer, undo, em um editor de textos?\n 2",
+      "question": "A pilha é uma estrutura recomendada para criar o recurso de desfazer, undo, em um editor de textos?",
       "answer": true,
       "explanation": "O desfazer remove primeiro a ação mais recente, seguindo LIFO."
     },
@@ -396,7 +396,7 @@
       "number": 44,
       "question": "É correto afirmar que, em uma fila implementada com lista encadeada, se o enqueue adiciona elementos no fim da lista, o dequeue deve remover elementos do início para preservar o comportamento FIFO?",
       "answer": true,
-      "explanation": "Uma fila segue o princípio FIFO: o primeiro elemento a entrar deve ser o primeiro a sair. Se novos elementos entram pelo fim, a remoção deve ocorrer pelo início para preservar essa ordem. 2"
+      "explanation": "Uma fila segue o princípio FIFO: o primeiro elemento a entrar deve ser o primeiro a sair. Se novos elementos entram pelo fim, a remoção deve ocorrer pelo início para preservar essa ordem."
     },
     {
       "id": "Q|45",
@@ -441,7 +441,7 @@
       "number": 49,
       "question": "É correto afirmar que uma pilha auxiliar pode ser usada para exibir os elementos de uma fila na ordem inversa?",
       "answer": true,
-      "explanation": "Uma pilha segue o princípio LIFO. Ao remover elementos da fila e empilhá- los, a ordem é invertida; ao desempilhar, os elementos aparecem na ordem inversa da fila original. Parte 4 — Algoritmos de ordenação"
+      "explanation": "Uma pilha segue o princípio LIFO. Ao remover elementos da fila e empilhá- los, a ordem é invertida; ao desempilhar, os elementos aparecem na ordem inversa da fila original."
     },
     {
       "id": "Q|50",
@@ -511,7 +511,7 @@
       "partNumber": 4,
       "partTitle": "Parte 4 — Algoritmos de ordenação",
       "number": 57,
-      "question": "O Merge Sort possui complexidade O(n log n) no caso típico apresentado nas aulas?",
+      "question": "O Merge Sort possui complexidade O(n log n) no caso médio?",
       "answer": true,
       "explanation": "São log n níveis de divisão, e cada nível processa n elementos."
     },
@@ -529,9 +529,9 @@
       "partNumber": 4,
       "partTitle": "Parte 4 — Algoritmos de ordenação",
       "number": 59,
-      "question": "O Quick Sort sempre tem O(n log n), independentemente da escolha do pivô?\n 3",
+      "question": "O Quick Sort sempre tem O(n log n), independentemente da escolha do pivô?",
       "answer": false,
-      "explanation": "A escolha ruim do pivô pode gerar partições desbalanceadas."
+      "explanation": "A escolha ruim do pivô pode gerar partições desbalanceadas. No pior cado ele é O(N²)"
     },
     {
       "id": "Q|60",
@@ -700,7 +700,7 @@
       "partNumber": 5,
       "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
       "number": 78,
-      "question": "Ao remover um nó com dois filhos em uma ABB, pode-se substituí-lo pelo menor valor da subárvore direita ou pelo maior valor da subárvore esquerda?\n 4",
+      "question": "Ao remover um nó com dois filhos em uma ABB, pode-se substituí-lo pelo menor valor da subárvore direita ou pelo maior valor da subárvore esquerda?",
       "answer": true,
       "explanation": "Esses substitutos preservam a propriedade da árvore binária de busca."
     },
@@ -763,7 +763,7 @@
       "partNumber": 5,
       "partTitle": "Parte 5 — Busca binária, ABB/BST e percursos",
       "number": 85,
-      "question": "Considere a árvore abaixo. Estão corretas as seguintes varreduras? - Pré-ordem: 7, 5, 1, 6, 8, 9 - Em-ordem: 1, 5, 6, 7, 8, 9 - Pós-ordem: 1, 6, 5, 9, 8, 7\n 7\n/ \\\n 5 8\n/ \\ \\\n 1 6 9",
+      "question": "Considere a árvore abaixo. Estão corretas as seguintes varreduras? Pré-ordem: 7, 5, 1, 6, 8, 9, Em-ordem: 1, 5, 6, 7, 8, 9 e Pós-ordem: 1, 6, 5, 9, 8, 7\n 7\n/ \\\n 5 8\n/ \\ \\\n 1 6 9",
       "answer": true,
       "explanation": "Na pré-ordem, visita-se raiz, esquerda e direita: 7, 5, 1, 6, 8, 9. Na em- ordem, visita-se esquerda, raiz e direita: 1, 5, 6, 7, 8, 9. Na pós-ordem, visita-se esquerda, direita e raiz: 1, 6, 5, 9, 8, 7."
     },
@@ -790,7 +790,7 @@
       "partNumber": 6,
       "partTitle": "Parte 6 — Hash, dicionários e sets",
       "number": 88,
-      "question": "Um dicionário abstrato armazena dados no formato chave → valor?\n 5",
+      "question": "Um dicionário abstrato armazena dados no formato chave → valor?",
       "answer": true,
       "explanation": "O dicionário associa uma chave a um valor."
     },
@@ -907,7 +907,7 @@
       "partNumber": 6,
       "partTitle": "Parte 6 — Hash, dicionários e sets",
       "number": 101,
-      "question": "É correto afirmar que a remoção de caracteres duplicados de um array de caracteres pode ter complexidade O(n) quando se usa uma tabela hash para marcar os caracteres já processados?\n 6",
+      "question": "É correto afirmar que a remoção de caracteres duplicados de um array de caracteres pode ter complexidade O(n) quando se usa uma tabela hash para marcar os caracteres já processados?",
       "answer": true,
       "explanation": "Usando uma tabela hash, é possível percorrer o array de caracteres uma única vez, marcando quais caracteres já foram vistos. Como cada caractere é processado uma vez, a complexidade é O(n)."
     }
