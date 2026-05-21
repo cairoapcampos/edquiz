@@ -601,9 +601,9 @@
       "partNumber": 4,
       "partTitle": "Parte 4 — Algoritmos de ordenação",
       "number": 67,
-      "question": "Considerando que a ordenação por inserção faça uma passagem para cada elemento da lista, é correto afirmar que a lista {44, 21, 61, 6, 13, 1} terá 6 iterações?",
+      "question": "Considerando a implementação clássica do algoritmo de ordenação por inserção, na qual o primeiro elemento é considerado inicialmente ordenado e o laço externo começa no segundo elemento, quantas passagens efetivas de inserção serão realizadas para ordenar a lista {44, 21, 61, 6, 13, 1}?",
       "answer": true,
-      "explanation": "Considerando uma passagem para cada elemento da lista, a sequência {44, 21, 61, 6, 13, 1} possui 6 elementos e, portanto, 6 iterações nessa convenção."
+      "explanation": "5 passagens efetivas. Porque a lista tem 6 elementos, mas o primeiro elemento, 44, já é considerado uma sublista ordenada inicial. Assim, o algoritmo realiza inserções para os demais elementos: 21, 61, 6, 13, 1."
     },
     {
       "id": "Q|68",
@@ -612,7 +612,7 @@
       "number": 68,
       "question": "Na ordenação por inserção do array A = [35, 7, 64, 52, 32, 22], é correto afirmar que, após a segunda iteração, os elementos ficarão assim: 7, 35, 64, 52, 32, 22?",
       "answer": true,
-      "explanation": "Após a segunda iteração da ordenação por inserção no array A = [35, 7, 64, 52, 32, 22], os dois primeiros elementos já aparecem ordenados, resultando em: 7, 35, 64, 52, 32, 22. Parte 5 — Busca binária, ABB/BST e percursos"
+      "explanation": "Após a segunda iteração da ordenação por inserção no array A = [35, 7, 64, 52, 32, 22], os dois primeiros elementos já aparecem ordenados, resultando em: 7, 35, 64, 52, 32, 22."
     },
     {
       "id": "Q|69",
