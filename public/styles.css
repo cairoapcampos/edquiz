@@ -27,6 +27,11 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
+/* Transição de fade entre questões */
+#card {
+  transition: opacity 0.15s ease;
+}
+
 /* Dica de atalho de teclado nos botões */
 kbd.kbd-hint {
   font-size: 0.65em;

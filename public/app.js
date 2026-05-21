@@ -111,6 +111,13 @@ function setButtons(buttons) {
   for (const b of buttons) actionsEl.appendChild(b);
 }
 
+function fadeQuestion(fn) {
+  const card = document.getElementById('card');
+  if (!card) { fn(); return; }
+  card.style.opacity = '0';
+  setTimeout(() => { fn(); card.style.opacity = '1'; }, 150);
+}
+
 function btn(label, klass, onClick) {
   const b = document.createElement('button');
   b.className = `btn ${klass || ''}`.trim();
@@ -246,7 +253,7 @@ async function start() {
     updateTimerUI();
   }
   startTimer();
-  renderQuestion(data.question, data.progress, data.scoreboard);
+  fadeQuestion(() => renderQuestion(data.question, data.progress, data.scoreboard));
 }
 
 async function restart() {
@@ -267,7 +274,7 @@ async function restart() {
     updateTimerUI();
   }
   startTimer();
-  renderQuestion(data.question, data.progress, data.scoreboard);
+  fadeQuestion(() => renderQuestion(data.question, data.progress, data.scoreboard));
 }
 
 async function submit(answer) {
@@ -309,7 +316,7 @@ async function submit(answer) {
   }
 
   setButtons([
-    btn('Próxima', 'btn-primary', () => renderQuestion(data.nextQuestion, data.progress, data.scoreboard)),
+    btn('Próxima', 'btn-primary', () => fadeQuestion(() => renderQuestion(data.nextQuestion, data.progress, data.scoreboard))),
   ]);
 }
 
@@ -330,7 +337,7 @@ async function skip() {
   }
 
   if (data.done) return renderDone(data.scoreboard, data.progress.total);
-  return renderQuestion(data.nextQuestion, data.progress, data.scoreboard);
+  return fadeQuestion(() => renderQuestion(data.nextQuestion, data.progress, data.scoreboard));
 }
 
 async function back() {
@@ -350,7 +357,7 @@ async function back() {
   }
 
   if (!data.question) return renderDone(data.scoreboard, data.progress.total);
-  return renderQuestion(data.question, data.progress, data.scoreboard);
+  return fadeQuestion(() => renderQuestion(data.question, data.progress, data.scoreboard));
 }
 
 async function restartToHome() {

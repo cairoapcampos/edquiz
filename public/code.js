@@ -126,6 +126,13 @@ function setButtons(buttons) {
   for (const b of buttons) actionsEl.appendChild(b);
 }
 
+function fadeQuestion(fn) {
+  const card = document.getElementById('card');
+  if (!card) { fn(); return; }
+  card.style.opacity = '0';
+  setTimeout(() => { fn(); card.style.opacity = '1'; }, 150);
+}
+
 function btn(label, klass, onClick) {
   const b = document.createElement('button');
   b.className = `btn ${klass || ''}`.trim();
@@ -281,7 +288,7 @@ async function start() {
   }
   startTimer();
   if (!data.question) return renderDone(data.scoreboard, data.progress.total);
-  return renderQuestion(data.question, data.progress, data.scoreboard);
+  return fadeQuestion(() => renderQuestion(data.question, data.progress, data.scoreboard));
 }
 
 async function submit() {
@@ -325,7 +332,7 @@ async function submit() {
     return;
   }
 
-  setButtons([btn('Próxima', 'btn-primary', () => renderQuestion(data.nextQuestion, data.progress, data.scoreboard))]);
+  setButtons([btn('Próxima', 'btn-primary', () => fadeQuestion(() => renderQuestion(data.nextQuestion, data.progress, data.scoreboard)))]);
 }
 
 async function skip() {
@@ -340,7 +347,7 @@ async function skip() {
     return;
   }
   if (data.done) return renderDone(data.scoreboard, data.progress.total);
-  return renderQuestion(data.nextQuestion, data.progress, data.scoreboard);
+  return fadeQuestion(() => renderQuestion(data.nextQuestion, data.progress, data.scoreboard));
 }
 
 async function back() {
@@ -349,7 +356,7 @@ async function back() {
   try {
     const data = await api('/api/code/back', { method: 'POST', body: JSON.stringify({}) });
     if (!data.question) return renderDone(data.scoreboard, data.progress.total);
-    return renderQuestion(data.question, data.progress, data.scoreboard);
+    return fadeQuestion(() => renderQuestion(data.question, data.progress, data.scoreboard));
   } catch (e) {
     locked = false;
     alert(e.message);
