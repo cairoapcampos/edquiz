@@ -386,24 +386,30 @@ loadMeta();
 
 // Atalhos de teclado
 document.addEventListener('keydown', (e) => {
-  const tag = document.activeElement?.tagName;
-  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  const active = document.activeElement;
+  const tag = active?.tagName;
+  const isRadio = tag === 'INPUT' && active?.type === 'radio';
   if (!current || locked) return;
   switch (e.key) {
     case 'Enter':
+      // Permite Enter mesmo quando um radio está focado
+      if (tag === 'TEXTAREA' || tag === 'SELECT' || (tag === 'INPUT' && !isRadio)) return;
       e.preventDefault();
       submit();
       break;
     case 'p': case 'P':
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
       e.preventDefault();
       skip();
       break;
     case 'ArrowLeft': {
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
       const backBtn = actionsEl.querySelector('button.btn-info');
       if (backBtn && !backBtn.disabled) { e.preventDefault(); back(); }
       break;
     }
     case 'r': case 'R':
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
       e.preventDefault();
       restartToHome();
       break;
