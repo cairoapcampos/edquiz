@@ -227,7 +227,7 @@ function renderHome() {
   diagramEl.innerHTML = '';
 
   stopTimer();
-  setButtons([btn('Começar', 'btn-primary px-4', () => start())]);
+  setButtons([btn('Começar', 'btn-primary px-4', () => start().catch((e) => alert(e.message)))]);
 }
 
 async function start() {
@@ -247,7 +247,14 @@ async function start() {
 async function restart() {
   const random = randomToggleEl ? !!randomToggleEl.checked : true;
   const part = partSelectEl ? partSelectEl.value : 'all';
-  const data = await api('/api/restart', { method: 'POST', body: JSON.stringify({ random, part }) });
+  let data;
+  try {
+    data = await api('/api/restart', { method: 'POST', body: JSON.stringify({ random, part }) });
+  } catch (e) {
+    alert(e.message);
+    renderHome();
+    return;
+  }
   if (!data.question) return renderDone(data.scoreboard, data.progress.total);
   if (timerToggleEl) {
     timerToggleEl.checked = true;
@@ -262,10 +269,17 @@ async function submit(answer) {
   if (!current || locked) return;
   locked = true;
 
-  const data = await api('/api/answer', {
-    method: 'POST',
-    body: JSON.stringify({ id: current.id, answer }),
-  });
+  let data;
+  try {
+    data = await api('/api/answer', {
+      method: 'POST',
+      body: JSON.stringify({ id: current.id, answer }),
+    });
+  } catch (e) {
+    locked = false;
+    alert(e.message);
+    return;
+  }
 
   feedbackEl.hidden = false;
   resultEl.textContent = data.correct ? 'Correto.' : `Incorreto. Resposta certa: ${data.correctAnswer ? 'Sim' : 'Não'}.`;
@@ -298,10 +312,17 @@ async function skip() {
   if (!current || locked) return;
   locked = true;
 
-  const data = await api('/api/skip', {
-    method: 'POST',
-    body: JSON.stringify({ id: current.id }),
-  });
+  let data;
+  try {
+    data = await api('/api/skip', {
+      method: 'POST',
+      body: JSON.stringify({ id: current.id }),
+    });
+  } catch (e) {
+    locked = false;
+    alert(e.message);
+    return;
+  }
 
   if (data.done) return renderDone(data.scoreboard, data.progress.total);
   return renderQuestion(data.nextQuestion, data.progress, data.scoreboard);
