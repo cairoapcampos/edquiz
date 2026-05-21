@@ -238,7 +238,7 @@ function renderHome() {
   choicesEl.innerHTML = '';
 
   stopTimer();
-  setButtons([btn('Começar', 'btn-primary px-4', () => start())]);
+  setButtons([btn('Começar', 'btn-primary px-4', () => start().catch((e) => alert(e.message)))]);
 }
 
 function renderDone(scoreboard, total) {
@@ -289,10 +289,17 @@ async function submit() {
   }
   locked = true;
 
-  const data = await api('/api/code/answer', {
-    method: 'POST',
-    body: JSON.stringify({ id: current.id, choiceKey }),
-  });
+  let data;
+  try {
+    data = await api('/api/code/answer', {
+      method: 'POST',
+      body: JSON.stringify({ id: current.id, choiceKey }),
+    });
+  } catch (e) {
+    locked = false;
+    alert(e.message);
+    return;
+  }
 
   feedbackEl.hidden = false;
   resultEl.textContent = data.correct ? 'Correto.' : `Incorreto. Resposta certa: ${data.correctAnswer.label}.`;
@@ -320,7 +327,14 @@ async function submit() {
 async function skip() {
   if (!current || locked) return;
   locked = true;
-  const data = await api('/api/code/skip', { method: 'POST', body: JSON.stringify({ id: current.id }) });
+  let data;
+  try {
+    data = await api('/api/code/skip', { method: 'POST', body: JSON.stringify({ id: current.id }) });
+  } catch (e) {
+    locked = false;
+    alert(e.message);
+    return;
+  }
   if (data.done) return renderDone(data.scoreboard, data.progress.total);
   return renderQuestion(data.nextQuestion, data.progress, data.scoreboard);
 }
